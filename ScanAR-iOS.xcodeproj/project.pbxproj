@@ -1,0 +1,573 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FAC76DC02989933E00E342FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DBF2989933E00E342FB /* AppDelegate.swift */; };
+		FAC76DC22989933E00E342FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DC12989933E00E342FB /* SceneDelegate.swift */; };
+		FAC76DC72989933E00E342FB /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC76DC52989933E00E342FB /* Root.storyboard */; };
+		FAC76DC92989933F00E342FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC76DC82989933F00E342FB /* Assets.xcassets */; };
+		FAC76DCC2989933F00E342FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC76DCA2989933F00E342FB /* LaunchScreen.storyboard */; };
+		FAC76DE32989966B00E342FB /* RootViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DD62989966B00E342FB /* RootViewInput.swift */; };
+		FAC76DE42989966B00E342FB /* RootInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DD72989966B00E342FB /* RootInteractorOutput.swift */; };
+		FAC76DE52989966B00E342FB /* RootModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DD82989966B00E342FB /* RootModuleOutput.swift */; };
+		FAC76DE62989966B00E342FB /* RootRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DD92989966B00E342FB /* RootRouterOutput.swift */; };
+		FAC76DE72989966B00E342FB /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDA2989966B00E342FB /* RootPresenter.swift */; };
+		FAC76DE82989966B00E342FB /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDB2989966B00E342FB /* RootRouter.swift */; };
+		FAC76DE92989966B00E342FB /* RootInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDC2989966B00E342FB /* RootInteractorInput.swift */; };
+		FAC76DEA2989966B00E342FB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDD2989966B00E342FB /* RootViewController.swift */; };
+		FAC76DEB2989966B00E342FB /* RootModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDE2989966B00E342FB /* RootModuleInput.swift */; };
+		FAC76DEC2989966B00E342FB /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDF2989966B00E342FB /* RootInteractor.swift */; };
+		FAC76DED2989966B00E342FB /* RootRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DE02989966B00E342FB /* RootRouterInput.swift */; };
+		FAC76DEE2989966B00E342FB /* RootViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DE12989966B00E342FB /* RootViewOutput.swift */; };
+		FAC76DEF2989966B00E342FB /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DE22989966B00E342FB /* RootWireframe.swift */; };
+		FAC76E0B298996BF00E342FB /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E02298996BF00E342FB /* BaseRouter.swift */; };
+		FAC76E0C298996BF00E342FB /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E04298996BF00E342FB /* BasePresenter.swift */; };
+		FAC76E0D298996BF00E342FB /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E06298996BF00E342FB /* BaseWireframe.swift */; };
+		FAC76E0E298996BF00E342FB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E08298996BF00E342FB /* BaseViewController.swift */; };
+		FAC76E0F298996BF00E342FB /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E0A298996BF00E342FB /* BaseInteractor.swift */; };
+		FAC76E112989972F00E342FB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E102989972F00E342FB /* Logger.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		FAC76DBC2989933E00E342FB /* ScanAR-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScanAR-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAC76DBF2989933E00E342FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAC76DC12989933E00E342FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		FAC76DC62989933E00E342FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Root.storyboard; sourceTree = "<group>"; };
+		FAC76DC82989933F00E342FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAC76DCB2989933F00E342FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FAC76DCD2989933F00E342FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAC76DD62989966B00E342FB /* RootViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewInput.swift; sourceTree = "<group>"; };
+		FAC76DD72989966B00E342FB /* RootInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractorOutput.swift; sourceTree = "<group>"; };
+		FAC76DD82989966B00E342FB /* RootModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleOutput.swift; sourceTree = "<group>"; };
+		FAC76DD92989966B00E342FB /* RootRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouterOutput.swift; sourceTree = "<group>"; };
+		FAC76DDA2989966B00E342FB /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
+		FAC76DDB2989966B00E342FB /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
+		FAC76DDC2989966B00E342FB /* RootInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractorInput.swift; sourceTree = "<group>"; };
+		FAC76DDD2989966B00E342FB /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		FAC76DDE2989966B00E342FB /* RootModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleInput.swift; sourceTree = "<group>"; };
+		FAC76DDF2989966B00E342FB /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
+		FAC76DE02989966B00E342FB /* RootRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouterInput.swift; sourceTree = "<group>"; };
+		FAC76DE12989966B00E342FB /* RootViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewOutput.swift; sourceTree = "<group>"; };
+		FAC76DE22989966B00E342FB /* RootWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
+		FAC76E02298996BF00E342FB /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		FAC76E04298996BF00E342FB /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
+		FAC76E06298996BF00E342FB /* BaseWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
+		FAC76E08298996BF00E342FB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		FAC76E0A298996BF00E342FB /* BaseInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
+		FAC76E102989972F00E342FB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAC76DB92989933E00E342FB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAC76DB32989933E00E342FB = {
+			isa = PBXGroup;
+			children = (
+				FAC76DBE2989933E00E342FB /* ScanAR-iOS */,
+				FAC76DBD2989933E00E342FB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAC76DBD2989933E00E342FB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DBC2989933E00E342FB /* ScanAR-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAC76DBE2989933E00E342FB /* ScanAR-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76E12298998CC00E342FB /* Application */,
+				FAC76DF52989969E00E342FB /* Common */,
+				FAC76DD32989965400E342FB /* Classes */,
+				FAC76E132989991B00E342FB /* Resources */,
+				FAC76DCD2989933F00E342FB /* Info.plist */,
+			);
+			path = "ScanAR-iOS";
+			sourceTree = "<group>";
+		};
+		FAC76DD32989965400E342FB /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DD42989965900E342FB /* Screens */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FAC76DD42989965900E342FB /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DD52989966000E342FB /* Root */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		FAC76DD52989966000E342FB /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DC52989933E00E342FB /* Root.storyboard */,
+				FAC76DF02989967A00E342FB /* View */,
+				FAC76DF12989968100E342FB /* Interactor */,
+				FAC76DF22989968A00E342FB /* Presenter */,
+				FAC76DF32989969200E342FB /* Router */,
+				FAC76DF42989969600E342FB /* Wireframe */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		FAC76DF02989967A00E342FB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DD62989966B00E342FB /* RootViewInput.swift */,
+				FAC76DDD2989966B00E342FB /* RootViewController.swift */,
+				FAC76DE12989966B00E342FB /* RootViewOutput.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FAC76DF12989968100E342FB /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DD72989966B00E342FB /* RootInteractorOutput.swift */,
+				FAC76DDC2989966B00E342FB /* RootInteractorInput.swift */,
+				FAC76DDF2989966B00E342FB /* RootInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		FAC76DF22989968A00E342FB /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DD82989966B00E342FB /* RootModuleOutput.swift */,
+				FAC76DDA2989966B00E342FB /* RootPresenter.swift */,
+				FAC76DDE2989966B00E342FB /* RootModuleInput.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		FAC76DF32989969200E342FB /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DD92989966B00E342FB /* RootRouterOutput.swift */,
+				FAC76DDB2989966B00E342FB /* RootRouter.swift */,
+				FAC76DE02989966B00E342FB /* RootRouterInput.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		FAC76DF42989969600E342FB /* Wireframe */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DE22989966B00E342FB /* RootWireframe.swift */,
+			);
+			path = Wireframe;
+			sourceTree = "<group>";
+		};
+		FAC76DF52989969E00E342FB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DF6298996A400E342FB /* Base Classes */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		FAC76DF6298996A400E342FB /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76E09298996BF00E342FB /* BaseInteractor */,
+				FAC76E03298996BF00E342FB /* BasePresenter */,
+				FAC76E01298996BF00E342FB /* BaseRouter */,
+				FAC76E07298996BF00E342FB /* BaseViewController */,
+				FAC76E05298996BF00E342FB /* BaseWireframe */,
+				FAC76E102989972F00E342FB /* Logger.swift */,
+			);
+			path = "Base Classes";
+			sourceTree = "<group>";
+		};
+		FAC76E01298996BF00E342FB /* BaseRouter */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76E02298996BF00E342FB /* BaseRouter.swift */,
+			);
+			path = BaseRouter;
+			sourceTree = "<group>";
+		};
+		FAC76E03298996BF00E342FB /* BasePresenter */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76E04298996BF00E342FB /* BasePresenter.swift */,
+			);
+			path = BasePresenter;
+			sourceTree = "<group>";
+		};
+		FAC76E05298996BF00E342FB /* BaseWireframe */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76E06298996BF00E342FB /* BaseWireframe.swift */,
+			);
+			path = BaseWireframe;
+			sourceTree = "<group>";
+		};
+		FAC76E07298996BF00E342FB /* BaseViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76E08298996BF00E342FB /* BaseViewController.swift */,
+			);
+			path = BaseViewController;
+			sourceTree = "<group>";
+		};
+		FAC76E09298996BF00E342FB /* BaseInteractor */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76E0A298996BF00E342FB /* BaseInteractor.swift */,
+			);
+			path = BaseInteractor;
+			sourceTree = "<group>";
+		};
+		FAC76E12298998CC00E342FB /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DBF2989933E00E342FB /* AppDelegate.swift */,
+				FAC76DC12989933E00E342FB /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		FAC76E132989991B00E342FB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAC76DC82989933F00E342FB /* Assets.xcassets */,
+				FAC76DCA2989933F00E342FB /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAC76DBB2989933E00E342FB /* ScanAR-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAC76DD02989933F00E342FB /* Build configuration list for PBXNativeTarget "ScanAR-iOS" */;
+			buildPhases = (
+				FAC76DB82989933E00E342FB /* Sources */,
+				FAC76DB92989933E00E342FB /* Frameworks */,
+				FAC76DBA2989933E00E342FB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ScanAR-iOS";
+			productName = "ScanAR-iOS";
+			productReference = FAC76DBC2989933E00E342FB /* ScanAR-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAC76DB42989933E00E342FB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					FAC76DBB2989933E00E342FB = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = FAC76DB72989933E00E342FB /* Build configuration list for PBXProject "ScanAR-iOS" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAC76DB32989933E00E342FB;
+			productRefGroup = FAC76DBD2989933E00E342FB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAC76DBB2989933E00E342FB /* ScanAR-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAC76DBA2989933E00E342FB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAC76DCC2989933F00E342FB /* LaunchScreen.storyboard in Resources */,
+				FAC76DC92989933F00E342FB /* Assets.xcassets in Resources */,
+				FAC76DC72989933E00E342FB /* Root.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAC76DB82989933E00E342FB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAC76DE42989966B00E342FB /* RootInteractorOutput.swift in Sources */,
+				FAC76E112989972F00E342FB /* Logger.swift in Sources */,
+				FAC76E0C298996BF00E342FB /* BasePresenter.swift in Sources */,
+				FAC76DEB2989966B00E342FB /* RootModuleInput.swift in Sources */,
+				FAC76DE72989966B00E342FB /* RootPresenter.swift in Sources */,
+				FAC76E0E298996BF00E342FB /* BaseViewController.swift in Sources */,
+				FAC76DEF2989966B00E342FB /* RootWireframe.swift in Sources */,
+				FAC76DEA2989966B00E342FB /* RootViewController.swift in Sources */,
+				FAC76DED2989966B00E342FB /* RootRouterInput.swift in Sources */,
+				FAC76DEC2989966B00E342FB /* RootInteractor.swift in Sources */,
+				FAC76DE52989966B00E342FB /* RootModuleOutput.swift in Sources */,
+				FAC76E0B298996BF00E342FB /* BaseRouter.swift in Sources */,
+				FAC76DE82989966B00E342FB /* RootRouter.swift in Sources */,
+				FAC76DE32989966B00E342FB /* RootViewInput.swift in Sources */,
+				FAC76DC02989933E00E342FB /* AppDelegate.swift in Sources */,
+				FAC76DE62989966B00E342FB /* RootRouterOutput.swift in Sources */,
+				FAC76E0D298996BF00E342FB /* BaseWireframe.swift in Sources */,
+				FAC76DEE2989966B00E342FB /* RootViewOutput.swift in Sources */,
+				FAC76DC22989933E00E342FB /* SceneDelegate.swift in Sources */,
+				FAC76DE92989966B00E342FB /* RootInteractorInput.swift in Sources */,
+				FAC76E0F298996BF00E342FB /* BaseInteractor.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FAC76DC52989933E00E342FB /* Root.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAC76DC62989933E00E342FB /* Base */,
+			);
+			name = Root.storyboard;
+			sourceTree = "<group>";
+		};
+		FAC76DCA2989933F00E342FB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAC76DCB2989933F00E342FB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAC76DCE2989933F00E342FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FAC76DCF2989933F00E342FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAC76DD12989933F00E342FB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 839QV4DU65;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ScanAR-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ScanAR;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Root;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "tomark.ScanAR-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAC76DD22989933F00E342FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 839QV4DU65;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ScanAR-iOS/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = ScanAR;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Root;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "tomark.ScanAR-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAC76DB72989933E00E342FB /* Build configuration list for PBXProject "ScanAR-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAC76DCE2989933F00E342FB /* Debug */,
+				FAC76DCF2989933F00E342FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAC76DD02989933F00E342FB /* Build configuration list for PBXNativeTarget "ScanAR-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAC76DD12989933F00E342FB /* Debug */,
+				FAC76DD22989933F00E342FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAC76DB42989933E00E342FB /* Project object */;
+}
