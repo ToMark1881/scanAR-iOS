@@ -52,6 +52,7 @@
 		FABC9D8E29D47148001E565F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../../Downloads/CaptureSample/CaptureSample/ContentView.swift; sourceTree = "<group>"; };
 		FABC9D9229D47EDD001E565F /* ModelGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGenerationView.swift; sourceTree = "<group>"; };
 		FABC9D9429D481B0001E565F /* ModelGenerationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGenerationManager.swift; sourceTree = "<group>"; };
+		FACD315F29D4C35600957CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FAF43DC829D46955004AB588 /* ScanAR-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScanAR-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF43DD229D46956004AB588 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +112,7 @@
 		FAF43DCA29D46955004AB588 /* ScanAR-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				FACD315F29D4C35600957CB6 /* Info.plist */,
 				FABC9D6B29D46A13001E565F /* Assets.xcassets */,
 				FABC9D6D29D46A14001E565F /* CaptureSampleApp.swift */,
 				FABC9D8B29D4710C001E565F /* View */,
@@ -356,6 +358,7 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ScanAR-iOS/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "CaptureSample uses the camera to take photos and preview video.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -389,6 +392,7 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "ScanAR-iOS/Info.plist";
 				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "CaptureSample uses the camera to take photos and preview video.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
