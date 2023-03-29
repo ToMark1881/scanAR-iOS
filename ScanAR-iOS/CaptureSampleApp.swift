@@ -1,5 +1,5 @@
 //
-//  ScanAR_iOSApp.swift
+//  CaptureSampleApp.swift
 //  ScanAR-iOS
 //
 //  Created by Vladyslav Vdovychenko on 29.03.2023.
@@ -8,10 +8,12 @@
 import SwiftUI
 
 @main
-struct ScanAR_iOSApp: App {
+struct CaptureSampleApp: App {
+    @StateObject var model = CameraViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(model: model)
         }
     }
 }

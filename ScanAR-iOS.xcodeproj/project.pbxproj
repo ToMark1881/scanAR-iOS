@@ -7,17 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FAF43DCC29D46955004AB588 /* ScanAR_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF43DCB29D46955004AB588 /* ScanAR_iOSApp.swift */; };
-		FAF43DCE29D46955004AB588 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF43DCD29D46955004AB588 /* ContentView.swift */; };
-		FAF43DD029D46956004AB588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF43DCF29D46956004AB588 /* Assets.xcassets */; };
+		FABC9D7729D46A14001E565F /* CaptureGalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D6529D46A13001E565F /* CaptureGalleryView.swift */; };
+		FABC9D7829D46A14001E565F /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D6629D46A13001E565F /* CameraViewModel.swift */; };
+		FABC9D7929D46A14001E565F /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D6729D46A13001E565F /* CameraView.swift */; };
+		FABC9D7A29D46A14001E565F /* AsyncImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D6829D46A13001E565F /* AsyncImageHelpers.swift */; };
+		FABC9D7B29D46A14001E565F /* Capture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D6929D46A13001E565F /* Capture.swift */; };
+		FABC9D7C29D46A14001E565F /* CaptureFolderState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D6A29D46A13001E565F /* CaptureFolderState.swift */; };
+		FABC9D7D29D46A14001E565F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABC9D6B29D46A13001E565F /* Assets.xcassets */; };
+		FABC9D7E29D46A14001E565F /* CaptureInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D6C29D46A13001E565F /* CaptureInfo.swift */; };
+		FABC9D7F29D46A14001E565F /* CaptureSampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D6D29D46A14001E565F /* CaptureSampleApp.swift */; };
+		FABC9D8029D46A14001E565F /* HelpPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D6E29D46A14001E565F /* HelpPageView.swift */; };
+		FABC9D8129D46A14001E565F /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D6F29D46A14001E565F /* TimerView.swift */; };
+		FABC9D8229D46A14001E565F /* CaptureFoldersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D7029D46A14001E565F /* CaptureFoldersView.swift */; };
+		FABC9D8329D46A14001E565F /* TriggerEveryTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D7129D46A14001E565F /* TriggerEveryTimer.swift */; };
+		FABC9D8429D46A14001E565F /* InfoPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D7229D46A14001E565F /* InfoPanelView.swift */; };
+		FABC9D8529D46A14001E565F /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D7329D46A14001E565F /* PhotoCaptureDelegate.swift */; };
+		FABC9D8629D46A14001E565F /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D7429D46A14001E565F /* CameraPreviewView.swift */; };
+		FABC9D8729D46A14001E565F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D7529D46A14001E565F /* ImageLoader.swift */; };
+		FABC9D8829D46A14001E565F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D7629D46A14001E565F /* ContentView.swift */; };
 		FAF43DD329D46956004AB588 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF43DD229D46956004AB588 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FABC9D6529D46A13001E565F /* CaptureGalleryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureGalleryView.swift; sourceTree = "<group>"; };
+		FABC9D6629D46A13001E565F /* CameraViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
+		FABC9D6729D46A13001E565F /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		FABC9D6829D46A13001E565F /* AsyncImageHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncImageHelpers.swift; sourceTree = "<group>"; };
+		FABC9D6929D46A13001E565F /* Capture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Capture.swift; sourceTree = "<group>"; };
+		FABC9D6A29D46A13001E565F /* CaptureFolderState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureFolderState.swift; sourceTree = "<group>"; };
+		FABC9D6B29D46A13001E565F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../Downloads/CaptureSample/CaptureSample/Assets.xcassets; sourceTree = "<group>"; };
+		FABC9D6C29D46A13001E565F /* CaptureInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureInfo.swift; sourceTree = "<group>"; };
+		FABC9D6D29D46A14001E565F /* CaptureSampleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureSampleApp.swift; sourceTree = "<group>"; };
+		FABC9D6E29D46A14001E565F /* HelpPageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpPageView.swift; sourceTree = "<group>"; };
+		FABC9D6F29D46A14001E565F /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		FABC9D7029D46A14001E565F /* CaptureFoldersView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureFoldersView.swift; sourceTree = "<group>"; };
+		FABC9D7129D46A14001E565F /* TriggerEveryTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriggerEveryTimer.swift; sourceTree = "<group>"; };
+		FABC9D7229D46A14001E565F /* InfoPanelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPanelView.swift; sourceTree = "<group>"; };
+		FABC9D7329D46A14001E565F /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
+		FABC9D7429D46A14001E565F /* CameraPreviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		FABC9D7529D46A14001E565F /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		FABC9D7629D46A14001E565F /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../Downloads/CaptureSample/CaptureSample/ContentView.swift; sourceTree = "<group>"; };
 		FAF43DC829D46955004AB588 /* ScanAR-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScanAR-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAF43DCB29D46955004AB588 /* ScanAR_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAR_iOSApp.swift; sourceTree = "<group>"; };
-		FAF43DCD29D46955004AB588 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		FAF43DCF29D46956004AB588 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAF43DD229D46956004AB588 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,9 +81,24 @@
 		FAF43DCA29D46955004AB588 /* ScanAR-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				FAF43DCB29D46955004AB588 /* ScanAR_iOSApp.swift */,
-				FAF43DCD29D46955004AB588 /* ContentView.swift */,
-				FAF43DCF29D46956004AB588 /* Assets.xcassets */,
+				FABC9D6B29D46A13001E565F /* Assets.xcassets */,
+				FABC9D6829D46A13001E565F /* AsyncImageHelpers.swift */,
+				FABC9D7429D46A14001E565F /* CameraPreviewView.swift */,
+				FABC9D6729D46A13001E565F /* CameraView.swift */,
+				FABC9D6629D46A13001E565F /* CameraViewModel.swift */,
+				FABC9D6929D46A13001E565F /* Capture.swift */,
+				FABC9D6A29D46A13001E565F /* CaptureFolderState.swift */,
+				FABC9D7029D46A14001E565F /* CaptureFoldersView.swift */,
+				FABC9D6529D46A13001E565F /* CaptureGalleryView.swift */,
+				FABC9D6C29D46A13001E565F /* CaptureInfo.swift */,
+				FABC9D6D29D46A14001E565F /* CaptureSampleApp.swift */,
+				FABC9D7629D46A14001E565F /* ContentView.swift */,
+				FABC9D6E29D46A14001E565F /* HelpPageView.swift */,
+				FABC9D7529D46A14001E565F /* ImageLoader.swift */,
+				FABC9D7229D46A14001E565F /* InfoPanelView.swift */,
+				FABC9D7329D46A14001E565F /* PhotoCaptureDelegate.swift */,
+				FABC9D6F29D46A14001E565F /* TimerView.swift */,
+				FABC9D7129D46A14001E565F /* TriggerEveryTimer.swift */,
 				FAF43DD129D46956004AB588 /* Preview Content */,
 			);
 			path = "ScanAR-iOS";
@@ -126,7 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAF43DD329D46956004AB588 /* Preview Assets.xcassets in Resources */,
-				FAF43DD029D46956004AB588 /* Assets.xcassets in Resources */,
+				FABC9D7D29D46A14001E565F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +182,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAF43DCE29D46955004AB588 /* ContentView.swift in Sources */,
-				FAF43DCC29D46955004AB588 /* ScanAR_iOSApp.swift in Sources */,
+				FABC9D7829D46A14001E565F /* CameraViewModel.swift in Sources */,
+				FABC9D8329D46A14001E565F /* TriggerEveryTimer.swift in Sources */,
+				FABC9D7F29D46A14001E565F /* CaptureSampleApp.swift in Sources */,
+				FABC9D8029D46A14001E565F /* HelpPageView.swift in Sources */,
+				FABC9D7A29D46A14001E565F /* AsyncImageHelpers.swift in Sources */,
+				FABC9D8629D46A14001E565F /* CameraPreviewView.swift in Sources */,
+				FABC9D8829D46A14001E565F /* ContentView.swift in Sources */,
+				FABC9D8129D46A14001E565F /* TimerView.swift in Sources */,
+				FABC9D7C29D46A14001E565F /* CaptureFolderState.swift in Sources */,
+				FABC9D8229D46A14001E565F /* CaptureFoldersView.swift in Sources */,
+				FABC9D7B29D46A14001E565F /* Capture.swift in Sources */,
+				FABC9D7E29D46A14001E565F /* CaptureInfo.swift in Sources */,
+				FABC9D7929D46A14001E565F /* CameraView.swift in Sources */,
+				FABC9D8729D46A14001E565F /* ImageLoader.swift in Sources */,
+				FABC9D7729D46A14001E565F /* CaptureGalleryView.swift in Sources */,
+				FABC9D8529D46A14001E565F /* PhotoCaptureDelegate.swift in Sources */,
+				FABC9D8429D46A14001E565F /* InfoPanelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
