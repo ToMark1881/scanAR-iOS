@@ -7,18 +7,24 @@
 
 import Foundation
 
-struct UploadResponse: Decodable {
-    let sessionId: String
+enum GenerationState {
+    case uploading
+    case generating(progress: String)
+    case downloading
+    case done
 }
 
 class ModelGenerationManager: NSObject {
     
-    private var apiUrl: URL {
-        return URL(string: "192.168.1.146:8080/")!
+    private enum Constants {
+        static let host = "192.168.1.146"
+        static let port = 8080
     }
     
-    func uploadFiles(from directoryUrl: URL, completion: ((UploadResponse) -> Void)) {
-        var request = URLRequest(url: URL(string: "http://" + apiUrl.absoluteString + "upload-photos/")!)
+    private var currentSessionId: String?
+    
+    func uploadFiles(from directoryUrl: URL, completion: @escaping (() -> Void)) {
+        var request = URLRequest(url: URL(string: "http://" + Constants.host + ":" + Constants.port.description + "/upload-photos/")!)
         request.httpMethod = "POST"
 
         // Set up the URLSession configuration and session object
@@ -55,7 +61,9 @@ class ModelGenerationManager: NSObject {
             if let error = error {
                 print("Error uploading files: \(error)")
             } else {
-                print("Successfully uploaded files")
+                let id = String(decoding: data!, as: UTF8.self)
+                self.currentSessionId = id
+                completion()
             }
         }
 
@@ -63,11 +71,16 @@ class ModelGenerationManager: NSObject {
         uploadTask.resume()
     }
     
-    func getProgress(for id: String) {
+    func getProgress(completion: ((String) -> Void)) {
+        guard let id = currentSessionId else {
+            return
+        }
+        
         // Set up the WebSocket URL components
         var webSocketUrlComponents = URLComponents()
         webSocketUrlComponents.scheme = "wss"
-        webSocketUrlComponents.host = apiUrl.absoluteString
+        webSocketUrlComponents.host = Constants.host
+        webSocketUrlComponents.port = Constants.port
         webSocketUrlComponents.path = "/progress"
         webSocketUrlComponents.queryItems = [
             URLQueryItem(name: "id", value: id)
@@ -100,12 +113,110 @@ class ModelGenerationManager: NSObject {
         }
     }
     
+    func downloadModel(into destinationURL: URL) {
+        guard let id = currentSessionId else {
+            return
+        }
+        
+        // Set up the URL components
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "http"
+        urlComponents.host = Constants.host
+        urlComponents.port = Constants.port
+        urlComponents.path = "/download-model"
+
+        let fileURL = urlComponents.url!
+        
+        let json = ["id": id]
+        let jsonData = try! JSONSerialization.data(withJSONObject: json)
+        
+        var request = URLRequest(url: fileURL)
+        request.httpMethod = "POST"
+        request.httpBody = jsonData
+        
+        // Set up the multipart form data body
+        let boundary = "Boundary-\(UUID().uuidString)"
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        
+
+        // Create a URLSession configuration
+        let sessionConfig = URLSessionConfiguration.default
+
+        // Create a URLSession instance
+        let session = URLSession(configuration: sessionConfig, delegate: self, delegateQueue: OperationQueue.main)
+
+        // Create a download task
+        let downloadTask = session.dataTask(with: request) { (data, response, error) in
+            // Check for errors
+            guard error == nil else {
+                print("Error downloading file: \(error!.localizedDescription)")
+                return
+            }
+            
+            // Check if there's a response
+            guard let httpResponse = response as? HTTPURLResponse else {
+                print("No response received")
+                return
+            }
+            
+            // Check if the response was successful
+            guard (200...299).contains(httpResponse.statusCode) else {
+                print("Response status code: \(httpResponse.statusCode)")
+                return
+            }
+            
+            // Check if there's a local URL for the downloaded file
+            guard let data = data else {
+                print("No local URL for downloaded file")
+                return
+            }
+            
+            // Move the downloaded file to the desired location
+            let url = destinationURL.appendingPathComponent("\(id).usdz")
+            
+            do {
+                try data.write(to: url)
+                print("File downloaded to: \(url.absoluteString)")
+            } catch {
+                print("Error moving downloaded file: \(error.localizedDescription)")
+            }
+        }
+
+        // Start the download task
+        downloadTask.resume()
+    }
+    
 }
+
 
 extension ModelGenerationManager: URLSessionTaskDelegate {
     
-    func urlSession(_ session: URLSession, task: URLSessionTask, didSendBodyData bytesSent: Int64, totalBytesSent: Int64, totalBytesExpectedToSend: Int64) {
+    func urlSession(_ session: URLSession,
+                    task: URLSessionTask,
+                    didSendBodyData bytesSent: Int64,
+                    totalBytesSent: Int64,
+                    totalBytesExpectedToSend: Int64) {
         let uploadProgress = Float(totalBytesSent) / Float(totalBytesExpectedToSend)
+        print("Upload progress: \(uploadProgress)")
+    }
+    
+}
+
+extension ModelGenerationManager: URLSessionDownloadDelegate {
+    
+    func urlSession(_ session: URLSession,
+                    downloadTask: URLSessionDownloadTask,
+                    didWriteData bytesWritten: Int64,
+                    totalBytesWritten: Int64,
+                    totalBytesExpectedToWrite: Int64) {
+        let downloadProgress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
+        print("Download progress: \(downloadProgress)")
+    }
+
+    func urlSession(_ session: URLSession,
+                    downloadTask: URLSessionDownloadTask,
+                    didFinishDownloadingTo location: URL) {
+        print("Downloaded")
     }
     
 }

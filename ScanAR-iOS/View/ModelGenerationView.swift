@@ -11,21 +11,52 @@ struct ModelGenerationView: View {
     
     var directoryURL: URL
     
+    @State private var progress: String = "Progress: 0"
+    
     private let manager = ModelGenerationManager()
     
     var body: some View {
-        Button {
-            start()
-        } label: {
-            Text("Start!")
+        VStack(spacing: 12) {
+            Button {
+                start()
+            } label: {
+                Text("Start!")
+            }
+            
+            Button {
+                trackProgress()
+            } label: {
+                Text("Progress")
+            }
+            
+            Text(progress)
+            
+            Button {
+                download()
+            } label: {
+                Text("Download")
+            }
+
         }
 
     }
     
+    init(directoryURL: URL) {
+        self.directoryURL = directoryURL
+    }
+    
     func start() {
-        manager.uploadFiles(from: directoryURL) { response in
-            print(response)
+        manager.uploadFiles(from: directoryURL) { }
+    }
+    
+    func trackProgress() {
+        manager.getProgress { progress in
+            self.progress = "Progress: \(progress)"
         }
+    }
+    
+    func download() {
+        manager.downloadModel(into: directoryURL)
     }
 }
 
