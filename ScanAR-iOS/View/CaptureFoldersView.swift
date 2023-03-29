@@ -11,7 +11,7 @@ import SwiftUI
 
 import os
 
-private let logger = Logger(subsystem: "com.apple.sample.CaptureSample",
+private let logger = Logger(subsystem: "com.tomark.scanar-ios",
                             category: "CaptureFoldersView")
 
 struct CaptureFoldersView: View {

@@ -91,7 +91,7 @@ struct CaptureButtonPanelView: View {
                 Spacer()
                 CaptureModeButton(model: model,
                                   frameWidth: width / 3)
-                    .padding(.horizontal)
+                .padding(.horizontal)
             }
         }
     }
@@ -143,11 +143,9 @@ struct CaptureButton: View {
     static let outerDiameter: CGFloat = 80
     static let strokeWidth: CGFloat = 4
     static let innerPadding: CGFloat = 10
-    static let innerDiameter: CGFloat = CaptureButton.outerDiameter -
-        CaptureButton.strokeWidth - CaptureButton.innerPadding
+    static let innerDiameter: CGFloat = CaptureButton.outerDiameter - CaptureButton.strokeWidth - CaptureButton.innerPadding
     static let rootTwoOverTwo: CGFloat = CGFloat(2.0.squareRoot() / 2.0)
-    static let squareDiameter: CGFloat = CaptureButton.innerDiameter * CaptureButton.rootTwoOverTwo -
-        CaptureButton.innerPadding
+    static let squareDiameter: CGFloat = CaptureButton.innerDiameter * CaptureButton.rootTwoOverTwo - CaptureButton.innerPadding
     
     @ObservedObject var model: CameraViewModel
     
@@ -328,7 +326,7 @@ struct ThumbnailImageView: View {
             .cornerRadius(thumbnailFrameCornerRadius)
             .clipped()
             .overlay(RoundedRectangle(cornerRadius: thumbnailFrameCornerRadius)
-                        .stroke(Color.primary, lineWidth: thumbnailStrokeWidth))
+                .stroke(Color.primary, lineWidth: thumbnailStrokeWidth))
             .shadow(radius: 10)
     }
 }

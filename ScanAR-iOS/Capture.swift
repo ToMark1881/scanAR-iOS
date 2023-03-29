@@ -14,7 +14,7 @@ import Foundation
 import UIKit
 import os
 
-private let logger = Logger(subsystem: "com.apple.sample.CaptureSample",
+private let logger = Logger(subsystem: "com.tomark.scanar-ios",
                             category: "Capture")
 
 /// This is a data object that contains one image and its associated metadata, including gravity, depth,

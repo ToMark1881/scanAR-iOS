@@ -9,7 +9,7 @@ import Combine
 import Foundation
 import os
 
-private let logger = Logger(subsystem: "com.apple.sample.CaptureSample",
+private let logger = Logger(subsystem: "com.tomark.scanar-ios",
                             category: "CaptureInfo")
 
 /// This is a lightweight data object that holds a single capture sample, a reference to its capture directory,

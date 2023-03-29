@@ -10,7 +10,7 @@ import Foundation
 
 import os
 
-private let logger = Logger(subsystem: "com.apple.sample.CaptureSample",
+private let logger = Logger(subsystem: "com.tomark.scanar-ios",
                             category: "CaptureFolderState")
 
 /// This helper class loads the contents of an image capture folder. It uses asynchronous calls that run on a

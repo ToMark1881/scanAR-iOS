@@ -99,6 +99,7 @@ struct CaptureGalleryView: View {
                     }
                 }
             }
+            ModelGenerationButtonView(shouldShow: captureFolderState.captures.isEmpty)
         }
         .navigationTitle(Text("\(captureFolderState.captureDir?.lastPathComponent ?? "NONE")"))
         .navigationBarTitleDisplayMode(.inline)
@@ -114,6 +115,34 @@ struct CaptureGalleryView: View {
             }
         })
     }
+}
+
+struct ModelGenerationButtonView: View {
+    
+    var shouldShow: Bool
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            
+            if shouldShow {
+                NavigationLink {
+                    ModelGenerationView()
+                } label: {
+                    Text("Create model β")
+                        .padding()
+                        .foregroundColor(.black)
+                        .font(.system(size: 18))
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [.cyan, .blue]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                        )
+                        .clipShape(Capsule())
+                }
+                .padding(.bottom, 12)
+            }
+        }
+    }
+    
 }
 
 struct NewSessionButtonView: View {

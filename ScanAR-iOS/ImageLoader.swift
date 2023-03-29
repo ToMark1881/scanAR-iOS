@@ -14,7 +14,7 @@ import UIKit
 
 import os
 
-private let logger = Logger(subsystem: "com.apple.sample.CaptureSample",
+private let logger = Logger(subsystem: "com.tomark.scanar-ios",
                             category: "ImageLoader")
 
 /// This helper class asynchronously loads thumbnails and full-size images from a file URL.
