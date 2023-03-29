@@ -8,13 +8,29 @@
 import SwiftUI
 
 struct ModelGenerationView: View {
+    
+    var directoryURL: URL
+    
+    private let manager = ModelGenerationManager()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button {
+            start()
+        } label: {
+            Text("Start!")
+        }
+
+    }
+    
+    func start() {
+        manager.uploadFiles(from: directoryURL) { response in
+            print(response)
+        }
     }
 }
 
 struct ModelGenerationView_Previews: PreviewProvider {
     static var previews: some View {
-        ModelGenerationView()
+        ModelGenerationView(directoryURL: URL(string: "google.com")!)
     }
 }

@@ -99,7 +99,8 @@ struct CaptureGalleryView: View {
                     }
                 }
             }
-            ModelGenerationButtonView(shouldShow: captureFolderState.captures.isEmpty)
+            ModelGenerationButtonView(shouldShow: !captureFolderState.captures.isEmpty,
+                                      directoryURL: captureFolderState.captureDir)
         }
         .navigationTitle(Text("\(captureFolderState.captureDir?.lastPathComponent ?? "NONE")"))
         .navigationBarTitleDisplayMode(.inline)
@@ -120,14 +121,15 @@ struct CaptureGalleryView: View {
 struct ModelGenerationButtonView: View {
     
     var shouldShow: Bool
+    var directoryURL: URL?
     
     var body: some View {
         VStack {
             Spacer()
             
-            if shouldShow {
+            if let url = directoryURL, shouldShow {
                 NavigationLink {
-                    ModelGenerationView()
+                    ModelGenerationView(directoryURL: url)
                 } label: {
                     Text("Create model β")
                         .padding()

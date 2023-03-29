@@ -26,6 +26,7 @@
 		FABC9D8729D46A14001E565F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D7529D46A14001E565F /* ImageLoader.swift */; };
 		FABC9D8F29D47148001E565F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D8E29D47148001E565F /* ContentView.swift */; };
 		FABC9D9329D47EDD001E565F /* ModelGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D9229D47EDD001E565F /* ModelGenerationView.swift */; };
+		FABC9D9529D481B0001E565F /* ModelGenerationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D9429D481B0001E565F /* ModelGenerationManager.swift */; };
 		FAF43DD329D46956004AB588 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF43DD229D46956004AB588 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		FABC9D8C29D4710D001E565F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FABC9D8E29D47148001E565F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../../Downloads/CaptureSample/CaptureSample/ContentView.swift; sourceTree = "<group>"; };
 		FABC9D9229D47EDD001E565F /* ModelGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGenerationView.swift; sourceTree = "<group>"; };
+		FABC9D9429D481B0001E565F /* ModelGenerationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGenerationManager.swift; sourceTree = "<group>"; };
 		FAF43DC829D46955004AB588 /* ScanAR-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScanAR-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF43DD229D46956004AB588 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 				FABC9D6D29D46A14001E565F /* CaptureSampleApp.swift */,
 				FABC9D8B29D4710C001E565F /* View */,
 				FABC9D8D29D47113001E565F /* Models */,
+				FABC9D9429D481B0001E565F /* ModelGenerationManager.swift */,
 				FABC9D6829D46A13001E565F /* AsyncImageHelpers.swift */,
 				FABC9D6929D46A13001E565F /* Capture.swift */,
 				FABC9D6A29D46A13001E565F /* CaptureFolderState.swift */,
@@ -216,6 +219,7 @@
 				FABC9D7E29D46A14001E565F /* CaptureInfo.swift in Sources */,
 				FABC9D7929D46A14001E565F /* CameraView.swift in Sources */,
 				FABC9D8729D46A14001E565F /* ImageLoader.swift in Sources */,
+				FABC9D9529D481B0001E565F /* ModelGenerationManager.swift in Sources */,
 				FABC9D8F29D47148001E565F /* ContentView.swift in Sources */,
 				FABC9D7729D46A14001E565F /* CaptureGalleryView.swift in Sources */,
 				FABC9D8529D46A14001E565F /* PhotoCaptureDelegate.swift in Sources */,
@@ -352,10 +356,13 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "CaptureSample uses the camera to take photos and preview video.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -382,10 +389,13 @@
 				DEVELOPMENT_TEAM = 839QV4DU65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "CaptureSample uses the camera to take photos and preview video.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
