@@ -7,63 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FAC76DC02989933E00E342FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DBF2989933E00E342FB /* AppDelegate.swift */; };
-		FAC76DC22989933E00E342FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DC12989933E00E342FB /* SceneDelegate.swift */; };
-		FAC76DC72989933E00E342FB /* Root.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC76DC52989933E00E342FB /* Root.storyboard */; };
-		FAC76DC92989933F00E342FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC76DC82989933F00E342FB /* Assets.xcassets */; };
-		FAC76DCC2989933F00E342FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAC76DCA2989933F00E342FB /* LaunchScreen.storyboard */; };
-		FAC76DE32989966B00E342FB /* RootViewInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DD62989966B00E342FB /* RootViewInput.swift */; };
-		FAC76DE42989966B00E342FB /* RootInteractorOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DD72989966B00E342FB /* RootInteractorOutput.swift */; };
-		FAC76DE52989966B00E342FB /* RootModuleOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DD82989966B00E342FB /* RootModuleOutput.swift */; };
-		FAC76DE62989966B00E342FB /* RootRouterOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DD92989966B00E342FB /* RootRouterOutput.swift */; };
-		FAC76DE72989966B00E342FB /* RootPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDA2989966B00E342FB /* RootPresenter.swift */; };
-		FAC76DE82989966B00E342FB /* RootRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDB2989966B00E342FB /* RootRouter.swift */; };
-		FAC76DE92989966B00E342FB /* RootInteractorInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDC2989966B00E342FB /* RootInteractorInput.swift */; };
-		FAC76DEA2989966B00E342FB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDD2989966B00E342FB /* RootViewController.swift */; };
-		FAC76DEB2989966B00E342FB /* RootModuleInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDE2989966B00E342FB /* RootModuleInput.swift */; };
-		FAC76DEC2989966B00E342FB /* RootInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DDF2989966B00E342FB /* RootInteractor.swift */; };
-		FAC76DED2989966B00E342FB /* RootRouterInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DE02989966B00E342FB /* RootRouterInput.swift */; };
-		FAC76DEE2989966B00E342FB /* RootViewOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DE12989966B00E342FB /* RootViewOutput.swift */; };
-		FAC76DEF2989966B00E342FB /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76DE22989966B00E342FB /* RootWireframe.swift */; };
-		FAC76E0B298996BF00E342FB /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E02298996BF00E342FB /* BaseRouter.swift */; };
-		FAC76E0C298996BF00E342FB /* BasePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E04298996BF00E342FB /* BasePresenter.swift */; };
-		FAC76E0D298996BF00E342FB /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E06298996BF00E342FB /* BaseWireframe.swift */; };
-		FAC76E0E298996BF00E342FB /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E08298996BF00E342FB /* BaseViewController.swift */; };
-		FAC76E0F298996BF00E342FB /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E0A298996BF00E342FB /* BaseInteractor.swift */; };
-		FAC76E112989972F00E342FB /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC76E102989972F00E342FB /* Logger.swift */; };
+		FAF43DCC29D46955004AB588 /* ScanAR_iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF43DCB29D46955004AB588 /* ScanAR_iOSApp.swift */; };
+		FAF43DCE29D46955004AB588 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF43DCD29D46955004AB588 /* ContentView.swift */; };
+		FAF43DD029D46956004AB588 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF43DCF29D46956004AB588 /* Assets.xcassets */; };
+		FAF43DD329D46956004AB588 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF43DD229D46956004AB588 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FAC76DBC2989933E00E342FB /* ScanAR-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScanAR-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAC76DBF2989933E00E342FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAC76DC12989933E00E342FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FAC76DC62989933E00E342FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Root.storyboard; sourceTree = "<group>"; };
-		FAC76DC82989933F00E342FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FAC76DCB2989933F00E342FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FAC76DCD2989933F00E342FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAC76DD62989966B00E342FB /* RootViewInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewInput.swift; sourceTree = "<group>"; };
-		FAC76DD72989966B00E342FB /* RootInteractorOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractorOutput.swift; sourceTree = "<group>"; };
-		FAC76DD82989966B00E342FB /* RootModuleOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleOutput.swift; sourceTree = "<group>"; };
-		FAC76DD92989966B00E342FB /* RootRouterOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouterOutput.swift; sourceTree = "<group>"; };
-		FAC76DDA2989966B00E342FB /* RootPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootPresenter.swift; sourceTree = "<group>"; };
-		FAC76DDB2989966B00E342FB /* RootRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouter.swift; sourceTree = "<group>"; };
-		FAC76DDC2989966B00E342FB /* RootInteractorInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractorInput.swift; sourceTree = "<group>"; };
-		FAC76DDD2989966B00E342FB /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		FAC76DDE2989966B00E342FB /* RootModuleInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootModuleInput.swift; sourceTree = "<group>"; };
-		FAC76DDF2989966B00E342FB /* RootInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootInteractor.swift; sourceTree = "<group>"; };
-		FAC76DE02989966B00E342FB /* RootRouterInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootRouterInput.swift; sourceTree = "<group>"; };
-		FAC76DE12989966B00E342FB /* RootViewOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewOutput.swift; sourceTree = "<group>"; };
-		FAC76DE22989966B00E342FB /* RootWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootWireframe.swift; sourceTree = "<group>"; };
-		FAC76E02298996BF00E342FB /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
-		FAC76E04298996BF00E342FB /* BasePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasePresenter.swift; sourceTree = "<group>"; };
-		FAC76E06298996BF00E342FB /* BaseWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
-		FAC76E08298996BF00E342FB /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		FAC76E0A298996BF00E342FB /* BaseInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
-		FAC76E102989972F00E342FB /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		FAF43DC829D46955004AB588 /* ScanAR-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScanAR-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAF43DCB29D46955004AB588 /* ScanAR_iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanAR_iOSApp.swift; sourceTree = "<group>"; };
+		FAF43DCD29D46955004AB588 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FAF43DCF29D46956004AB588 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAF43DD229D46956004AB588 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		FAC76DB92989933E00E342FB /* Frameworks */ = {
+		FAF43DC529D46955004AB588 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,200 +32,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		FAC76DB32989933E00E342FB = {
+		FAF43DBF29D46955004AB588 = {
 			isa = PBXGroup;
 			children = (
-				FAC76DBE2989933E00E342FB /* ScanAR-iOS */,
-				FAC76DBD2989933E00E342FB /* Products */,
+				FAF43DCA29D46955004AB588 /* ScanAR-iOS */,
+				FAF43DC929D46955004AB588 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		FAC76DBD2989933E00E342FB /* Products */ = {
+		FAF43DC929D46955004AB588 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FAC76DBC2989933E00E342FB /* ScanAR-iOS.app */,
+				FAF43DC829D46955004AB588 /* ScanAR-iOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FAC76DBE2989933E00E342FB /* ScanAR-iOS */ = {
+		FAF43DCA29D46955004AB588 /* ScanAR-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				FAC76E12298998CC00E342FB /* Application */,
-				FAC76DF52989969E00E342FB /* Common */,
-				FAC76DD32989965400E342FB /* Classes */,
-				FAC76E132989991B00E342FB /* Resources */,
-				FAC76DCD2989933F00E342FB /* Info.plist */,
+				FAF43DCB29D46955004AB588 /* ScanAR_iOSApp.swift */,
+				FAF43DCD29D46955004AB588 /* ContentView.swift */,
+				FAF43DCF29D46956004AB588 /* Assets.xcassets */,
+				FAF43DD129D46956004AB588 /* Preview Content */,
 			);
 			path = "ScanAR-iOS";
 			sourceTree = "<group>";
 		};
-		FAC76DD32989965400E342FB /* Classes */ = {
+		FAF43DD129D46956004AB588 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				FAC76DD42989965900E342FB /* Screens */,
+				FAF43DD229D46956004AB588 /* Preview Assets.xcassets */,
 			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		FAC76DD42989965900E342FB /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76DD52989966000E342FB /* Root */,
-			);
-			path = Screens;
-			sourceTree = "<group>";
-		};
-		FAC76DD52989966000E342FB /* Root */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76DC52989933E00E342FB /* Root.storyboard */,
-				FAC76DF02989967A00E342FB /* View */,
-				FAC76DF12989968100E342FB /* Interactor */,
-				FAC76DF22989968A00E342FB /* Presenter */,
-				FAC76DF32989969200E342FB /* Router */,
-				FAC76DF42989969600E342FB /* Wireframe */,
-			);
-			path = Root;
-			sourceTree = "<group>";
-		};
-		FAC76DF02989967A00E342FB /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76DD62989966B00E342FB /* RootViewInput.swift */,
-				FAC76DDD2989966B00E342FB /* RootViewController.swift */,
-				FAC76DE12989966B00E342FB /* RootViewOutput.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		FAC76DF12989968100E342FB /* Interactor */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76DD72989966B00E342FB /* RootInteractorOutput.swift */,
-				FAC76DDC2989966B00E342FB /* RootInteractorInput.swift */,
-				FAC76DDF2989966B00E342FB /* RootInteractor.swift */,
-			);
-			path = Interactor;
-			sourceTree = "<group>";
-		};
-		FAC76DF22989968A00E342FB /* Presenter */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76DD82989966B00E342FB /* RootModuleOutput.swift */,
-				FAC76DDA2989966B00E342FB /* RootPresenter.swift */,
-				FAC76DDE2989966B00E342FB /* RootModuleInput.swift */,
-			);
-			path = Presenter;
-			sourceTree = "<group>";
-		};
-		FAC76DF32989969200E342FB /* Router */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76DD92989966B00E342FB /* RootRouterOutput.swift */,
-				FAC76DDB2989966B00E342FB /* RootRouter.swift */,
-				FAC76DE02989966B00E342FB /* RootRouterInput.swift */,
-			);
-			path = Router;
-			sourceTree = "<group>";
-		};
-		FAC76DF42989969600E342FB /* Wireframe */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76DE22989966B00E342FB /* RootWireframe.swift */,
-			);
-			path = Wireframe;
-			sourceTree = "<group>";
-		};
-		FAC76DF52989969E00E342FB /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76DF6298996A400E342FB /* Base Classes */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		FAC76DF6298996A400E342FB /* Base Classes */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76E09298996BF00E342FB /* BaseInteractor */,
-				FAC76E03298996BF00E342FB /* BasePresenter */,
-				FAC76E01298996BF00E342FB /* BaseRouter */,
-				FAC76E07298996BF00E342FB /* BaseViewController */,
-				FAC76E05298996BF00E342FB /* BaseWireframe */,
-				FAC76E102989972F00E342FB /* Logger.swift */,
-			);
-			path = "Base Classes";
-			sourceTree = "<group>";
-		};
-		FAC76E01298996BF00E342FB /* BaseRouter */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76E02298996BF00E342FB /* BaseRouter.swift */,
-			);
-			path = BaseRouter;
-			sourceTree = "<group>";
-		};
-		FAC76E03298996BF00E342FB /* BasePresenter */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76E04298996BF00E342FB /* BasePresenter.swift */,
-			);
-			path = BasePresenter;
-			sourceTree = "<group>";
-		};
-		FAC76E05298996BF00E342FB /* BaseWireframe */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76E06298996BF00E342FB /* BaseWireframe.swift */,
-			);
-			path = BaseWireframe;
-			sourceTree = "<group>";
-		};
-		FAC76E07298996BF00E342FB /* BaseViewController */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76E08298996BF00E342FB /* BaseViewController.swift */,
-			);
-			path = BaseViewController;
-			sourceTree = "<group>";
-		};
-		FAC76E09298996BF00E342FB /* BaseInteractor */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76E0A298996BF00E342FB /* BaseInteractor.swift */,
-			);
-			path = BaseInteractor;
-			sourceTree = "<group>";
-		};
-		FAC76E12298998CC00E342FB /* Application */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76DBF2989933E00E342FB /* AppDelegate.swift */,
-				FAC76DC12989933E00E342FB /* SceneDelegate.swift */,
-			);
-			path = Application;
-			sourceTree = "<group>";
-		};
-		FAC76E132989991B00E342FB /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				FAC76DC82989933F00E342FB /* Assets.xcassets */,
-				FAC76DCA2989933F00E342FB /* LaunchScreen.storyboard */,
-			);
-			path = Resources;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FAC76DBB2989933E00E342FB /* ScanAR-iOS */ = {
+		FAF43DC729D46955004AB588 /* ScanAR-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FAC76DD02989933F00E342FB /* Build configuration list for PBXNativeTarget "ScanAR-iOS" */;
+			buildConfigurationList = FAF43DD629D46956004AB588 /* Build configuration list for PBXNativeTarget "ScanAR-iOS" */;
 			buildPhases = (
-				FAC76DB82989933E00E342FB /* Sources */,
-				FAC76DB92989933E00E342FB /* Frameworks */,
-				FAC76DBA2989933E00E342FB /* Resources */,
+				FAF43DC429D46955004AB588 /* Sources */,
+				FAF43DC529D46955004AB588 /* Frameworks */,
+				FAF43DC629D46955004AB588 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -274,25 +84,25 @@
 			);
 			name = "ScanAR-iOS";
 			productName = "ScanAR-iOS";
-			productReference = FAC76DBC2989933E00E342FB /* ScanAR-iOS.app */;
+			productReference = FAF43DC829D46955004AB588 /* ScanAR-iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		FAC76DB42989933E00E342FB /* Project object */ = {
+		FAF43DC029D46955004AB588 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
-					FAC76DBB2989933E00E342FB = {
+					FAF43DC729D46955004AB588 = {
 						CreatedOnToolsVersion = 14.2;
 					};
 				};
 			};
-			buildConfigurationList = FAC76DB72989933E00E342FB /* Build configuration list for PBXProject "ScanAR-iOS" */;
+			buildConfigurationList = FAF43DC329D46955004AB588 /* Build configuration list for PBXProject "ScanAR-iOS" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -300,81 +110,42 @@
 				en,
 				Base,
 			);
-			mainGroup = FAC76DB32989933E00E342FB;
-			productRefGroup = FAC76DBD2989933E00E342FB /* Products */;
+			mainGroup = FAF43DBF29D46955004AB588;
+			productRefGroup = FAF43DC929D46955004AB588 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FAC76DBB2989933E00E342FB /* ScanAR-iOS */,
+				FAF43DC729D46955004AB588 /* ScanAR-iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		FAC76DBA2989933E00E342FB /* Resources */ = {
+		FAF43DC629D46955004AB588 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC76DCC2989933F00E342FB /* LaunchScreen.storyboard in Resources */,
-				FAC76DC92989933F00E342FB /* Assets.xcassets in Resources */,
-				FAC76DC72989933E00E342FB /* Root.storyboard in Resources */,
+				FAF43DD329D46956004AB588 /* Preview Assets.xcassets in Resources */,
+				FAF43DD029D46956004AB588 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FAC76DB82989933E00E342FB /* Sources */ = {
+		FAF43DC429D46955004AB588 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC76DE42989966B00E342FB /* RootInteractorOutput.swift in Sources */,
-				FAC76E112989972F00E342FB /* Logger.swift in Sources */,
-				FAC76E0C298996BF00E342FB /* BasePresenter.swift in Sources */,
-				FAC76DEB2989966B00E342FB /* RootModuleInput.swift in Sources */,
-				FAC76DE72989966B00E342FB /* RootPresenter.swift in Sources */,
-				FAC76E0E298996BF00E342FB /* BaseViewController.swift in Sources */,
-				FAC76DEF2989966B00E342FB /* RootWireframe.swift in Sources */,
-				FAC76DEA2989966B00E342FB /* RootViewController.swift in Sources */,
-				FAC76DED2989966B00E342FB /* RootRouterInput.swift in Sources */,
-				FAC76DEC2989966B00E342FB /* RootInteractor.swift in Sources */,
-				FAC76DE52989966B00E342FB /* RootModuleOutput.swift in Sources */,
-				FAC76E0B298996BF00E342FB /* BaseRouter.swift in Sources */,
-				FAC76DE82989966B00E342FB /* RootRouter.swift in Sources */,
-				FAC76DE32989966B00E342FB /* RootViewInput.swift in Sources */,
-				FAC76DC02989933E00E342FB /* AppDelegate.swift in Sources */,
-				FAC76DE62989966B00E342FB /* RootRouterOutput.swift in Sources */,
-				FAC76E0D298996BF00E342FB /* BaseWireframe.swift in Sources */,
-				FAC76DEE2989966B00E342FB /* RootViewOutput.swift in Sources */,
-				FAC76DC22989933E00E342FB /* SceneDelegate.swift in Sources */,
-				FAC76DE92989966B00E342FB /* RootInteractorInput.swift in Sources */,
-				FAC76E0F298996BF00E342FB /* BaseInteractor.swift in Sources */,
+				FAF43DCE29D46955004AB588 /* ContentView.swift in Sources */,
+				FAF43DCC29D46955004AB588 /* ScanAR_iOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		FAC76DC52989933E00E342FB /* Root.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FAC76DC62989933E00E342FB /* Base */,
-			);
-			name = Root.storyboard;
-			sourceTree = "<group>";
-		};
-		FAC76DCA2989933F00E342FB /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FAC76DCB2989933F00E342FB /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
-		FAC76DCE2989933F00E342FB /* Debug */ = {
+		FAF43DD429D46956004AB588 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -434,7 +205,7 @@
 			};
 			name = Debug;
 		};
-		FAC76DCF2989933F00E342FB /* Release */ = {
+		FAF43DD529D46956004AB588 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -488,20 +259,20 @@
 			};
 			name = Release;
 		};
-		FAC76DD12989933F00E342FB /* Debug */ = {
+		FAF43DD729D46956004AB588 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ScanAR-iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 839QV4DU65;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ScanAR-iOS/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ScanAR;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Root;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -517,20 +288,20 @@
 			};
 			name = Debug;
 		};
-		FAC76DD22989933F00E342FB /* Release */ = {
+		FAF43DD829D46956004AB588 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ScanAR-iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = 839QV4DU65;
+				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "ScanAR-iOS/Info.plist";
-				INFOPLIST_KEY_CFBundleDisplayName = ScanAR;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Root;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -549,25 +320,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FAC76DB72989933E00E342FB /* Build configuration list for PBXProject "ScanAR-iOS" */ = {
+		FAF43DC329D46955004AB588 /* Build configuration list for PBXProject "ScanAR-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FAC76DCE2989933F00E342FB /* Debug */,
-				FAC76DCF2989933F00E342FB /* Release */,
+				FAF43DD429D46956004AB588 /* Debug */,
+				FAF43DD529D46956004AB588 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAC76DD02989933F00E342FB /* Build configuration list for PBXNativeTarget "ScanAR-iOS" */ = {
+		FAF43DD629D46956004AB588 /* Build configuration list for PBXNativeTarget "ScanAR-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FAC76DD12989933F00E342FB /* Debug */,
-				FAC76DD22989933F00E342FB /* Release */,
+				FAF43DD729D46956004AB588 /* Debug */,
+				FAF43DD829D46956004AB588 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = FAC76DB42989933E00E342FB /* Project object */;
+	rootObject = FAF43DC029D46955004AB588 /* Project object */;
 }
