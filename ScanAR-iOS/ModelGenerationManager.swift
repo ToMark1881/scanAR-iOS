@@ -71,14 +71,14 @@ class ModelGenerationManager: NSObject {
         uploadTask.resume()
     }
     
-    func getProgress(completion: ((String) -> Void)) {
+    func getProgress(completion: @escaping ((String) -> Void)) {
         guard let id = currentSessionId else {
             return
         }
         
         // Set up the WebSocket URL components
         var webSocketUrlComponents = URLComponents()
-        webSocketUrlComponents.scheme = "wss"
+        webSocketUrlComponents.scheme = "ws"
         webSocketUrlComponents.host = Constants.host
         webSocketUrlComponents.port = Constants.port
         webSocketUrlComponents.path = "/progress"
@@ -90,24 +90,32 @@ class ModelGenerationManager: NSObject {
         let webSocketUrl = webSocketUrlComponents.url!
 
         // Create the WebSocket task
-        let webSocketTask = URLSession.shared.webSocketTask(with: webSocketUrl)
+        let webSocketTask = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue.main).webSocketTask(with: webSocketUrl)
 
         // Start the WebSocket task
         webSocketTask.resume()
+        
+        receiveMessage()
 
-        // Receive messages from the WebSocket
-        webSocketTask.receive { result in
-            switch result {
-            case .failure(let error):
-                print("Error receiving WebSocket message: \(error)")
-            case .success(let message):
-                switch message {
-                case .string(let text):
-                    print("Received WebSocket message: \(text)")
-                case .data(let data):
-                    print("Received WebSocket message (data): \(data)")
-                @unknown default:
-                    fatalError("Received unknown WebSocket message type")
+        func receiveMessage() {
+            // Receive messages from the WebSocket
+            webSocketTask.receive { result in
+                switch result {
+                case .failure(let error):
+                    print("Error receiving WebSocket message: \(error)")
+                    
+                case .success(let message):
+                    switch message {
+                    case .string(let text):
+                        print("Received WebSocket message: \(text)")
+                        completion(text)
+                        receiveMessage()
+                        
+                    case .data(let data):
+                        print("Received WebSocket message (data): \(data)")
+                    @unknown default:
+                        fatalError("Received unknown WebSocket message type")
+                    }
                 }
             }
         }
@@ -181,9 +189,22 @@ class ModelGenerationManager: NSObject {
                 print("Error moving downloaded file: \(error.localizedDescription)")
             }
         }
-
+        
         // Start the download task
         downloadTask.resume()
+    }
+    
+    private func ping(_ task: URLSessionWebSocketTask) {
+        task.sendPing { error in
+            if let error = error {
+                print("Error when sending PING \(error)")
+            } else {
+                print("Web Socket connection is alive")
+                DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
+                    self?.ping(task)
+                }
+            }
+        }
     }
     
 }
@@ -217,6 +238,19 @@ extension ModelGenerationManager: URLSessionDownloadDelegate {
                     downloadTask: URLSessionDownloadTask,
                     didFinishDownloadingTo location: URL) {
         print("Downloaded")
+    }
+    
+}
+
+extension ModelGenerationManager: URLSessionWebSocketDelegate {
+    
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
+        print("Web Socket did connect")
+        ping(webSocketTask)
+    }
+    
+    func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
+        print("Web Socket did disconnect")
     }
     
 }
