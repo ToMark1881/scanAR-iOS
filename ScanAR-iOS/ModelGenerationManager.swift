@@ -7,11 +7,9 @@
 
 import Foundation
 
-enum GenerationState {
-    case uploading
-    case generating(progress: String)
-    case downloading
-    case done
+enum FileRequestProgress {
+    case inProgress(_ progress: Int)
+    case finished
 }
 
 class ModelGenerationManager: NSObject {
@@ -23,7 +21,12 @@ class ModelGenerationManager: NSObject {
     
     private var currentSessionId: String?
     
-    func uploadFiles(from directoryUrl: URL, completion: @escaping (() -> Void)) {
+    private var uploadProgressCallback: ((FileRequestProgress) -> Void)?
+    private var downloadProgressCallback: ((FileRequestProgress) -> Void)?
+    
+    func uploadFiles(from directoryUrl: URL, progressStatus: ((FileRequestProgress) -> Void)?) {
+        self.uploadProgressCallback = progressStatus
+        
         var request = URLRequest(url: URL(string: "http://" + Constants.host + ":" + Constants.port.description + "/upload-photos/")!)
         request.httpMethod = "POST"
 
@@ -57,13 +60,13 @@ class ModelGenerationManager: NSObject {
         request.httpBody = bodyData
 
         // Create the upload task
-        let uploadTask = session.uploadTask(with: request, from: nil) { (data, response, error) in
+        let uploadTask = session.uploadTask(with: request, from: nil) { [weak self] (data, response, error) in
             if let error = error {
                 print("Error uploading files: \(error)")
             } else {
                 let id = String(decoding: data!, as: UTF8.self)
-                self.currentSessionId = id
-                completion()
+                self?.currentSessionId = id
+                self?.uploadProgressCallback?(.finished)
             }
         }
 
@@ -71,7 +74,7 @@ class ModelGenerationManager: NSObject {
         uploadTask.resume()
     }
     
-    func getProgress(completion: @escaping ((String) -> Void)) {
+    func getProgress(completion: @escaping ((FileRequestProgress) -> Void)) {
         guard let id = currentSessionId else {
             return
         }
@@ -108,7 +111,11 @@ class ModelGenerationManager: NSObject {
                     switch message {
                     case .string(let text):
                         print("Received WebSocket message: \(text)")
-                        completion(text)
+                        if let number = Int(text.components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) {
+                            completion(.inProgress(number))
+                        } else {
+                            completion(.finished)
+                        }
                         receiveMessage()
                         
                     case .data(let data):
@@ -121,10 +128,12 @@ class ModelGenerationManager: NSObject {
         }
     }
     
-    func downloadModel(into destinationURL: URL) {
+    func downloadModel(into destinationURL: URL, progressStatus: ((FileRequestProgress) -> Void)?, completion: @escaping ((URL) -> Void)) {
         guard let id = currentSessionId else {
             return
         }
+        
+        self.downloadProgressCallback = progressStatus
         
         // Set up the URL components
         var urlComponents = URLComponents()
@@ -184,6 +193,7 @@ class ModelGenerationManager: NSObject {
             
             do {
                 try data.write(to: url)
+                completion(url)
                 print("File downloaded to: \(url.absoluteString)")
             } catch {
                 print("Error moving downloaded file: \(error.localizedDescription)")
@@ -219,6 +229,8 @@ extension ModelGenerationManager: URLSessionTaskDelegate {
                     totalBytesExpectedToSend: Int64) {
         let uploadProgress = Float(totalBytesSent) / Float(totalBytesExpectedToSend)
         print("Upload progress: \(uploadProgress)")
+
+        uploadProgressCallback?(.inProgress(Int(uploadProgress * 100)))
     }
     
 }
@@ -232,12 +244,15 @@ extension ModelGenerationManager: URLSessionDownloadDelegate {
                     totalBytesExpectedToWrite: Int64) {
         let downloadProgress = Float(totalBytesWritten) / Float(totalBytesExpectedToWrite)
         print("Download progress: \(downloadProgress)")
+        
+        downloadProgressCallback?(.inProgress(Int(downloadProgress * 100)))
     }
-
+    
     func urlSession(_ session: URLSession,
                     downloadTask: URLSessionDownloadTask,
                     didFinishDownloadingTo location: URL) {
         print("Downloaded")
+        downloadProgressCallback?(.finished)
     }
     
 }

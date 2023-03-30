@@ -27,6 +27,7 @@
 		FABC9D8F29D47148001E565F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D8E29D47148001E565F /* ContentView.swift */; };
 		FABC9D9329D47EDD001E565F /* ModelGenerationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D9229D47EDD001E565F /* ModelGenerationView.swift */; };
 		FABC9D9529D481B0001E565F /* ModelGenerationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D9429D481B0001E565F /* ModelGenerationManager.swift */; };
+		FAC34E4329D5C4C200E345B7 /* ModelPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC34E4229D5C4C200E345B7 /* ModelPreviewView.swift */; };
 		FAF43DD329D46956004AB588 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF43DD229D46956004AB588 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -52,6 +53,7 @@
 		FABC9D8E29D47148001E565F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContentView.swift; path = ../../../../Downloads/CaptureSample/CaptureSample/ContentView.swift; sourceTree = "<group>"; };
 		FABC9D9229D47EDD001E565F /* ModelGenerationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGenerationView.swift; sourceTree = "<group>"; };
 		FABC9D9429D481B0001E565F /* ModelGenerationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelGenerationManager.swift; sourceTree = "<group>"; };
+		FAC34E4229D5C4C200E345B7 /* ModelPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelPreviewView.swift; sourceTree = "<group>"; };
 		FACD315F29D4C35600957CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FAF43DC829D46955004AB588 /* ScanAR-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScanAR-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF43DD229D46956004AB588 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				FABC9D8E29D47148001E565F /* ContentView.swift */,
+				FAC34E4229D5C4C200E345B7 /* ModelPreviewView.swift */,
 				FABC9D9229D47EDD001E565F /* ModelGenerationView.swift */,
 				FABC9D7429D46A14001E565F /* CameraPreviewView.swift */,
 				FABC9D6729D46A13001E565F /* CameraView.swift */,
@@ -211,6 +214,7 @@
 				FABC9D7829D46A14001E565F /* CameraViewModel.swift in Sources */,
 				FABC9D8329D46A14001E565F /* TriggerEveryTimer.swift in Sources */,
 				FABC9D7F29D46A14001E565F /* CaptureSampleApp.swift in Sources */,
+				FAC34E4329D5C4C200E345B7 /* ModelPreviewView.swift in Sources */,
 				FABC9D8029D46A14001E565F /* HelpPageView.swift in Sources */,
 				FABC9D7A29D46A14001E565F /* AsyncImageHelpers.swift in Sources */,
 				FABC9D8629D46A14001E565F /* CameraPreviewView.swift in Sources */,

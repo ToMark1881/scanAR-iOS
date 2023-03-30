@@ -7,38 +7,47 @@
 
 import SwiftUI
 
+enum GenerationState {
+    case new
+    case uploading(progress: Int)
+    case generating(progress: Int)
+    case downloading(progress: Int)
+    case done
+    
+    var description: String {
+        switch self {
+        case .new:
+            return "New"
+        case .uploading(let progress):
+            return "Uploading \(progress.description)"
+        case .generating(let progress):
+            return "Generating \(progress.description)"
+        case .downloading(let progress):
+            return "Downloading \(progress.description)"
+        case .done:
+            return "Done!"
+        }
+    }
+}
+
 struct ModelGenerationView: View {
     
     var directoryURL: URL
-    
-    @State private var progress: String = "Progress: 0"
+    @State private var state: GenerationState = .new
     
     private let manager = ModelGenerationManager()
     
     var body: some View {
-        VStack(spacing: 12) {
+        VStack {
             Button {
                 start()
             } label: {
-                Text("Start!")
+                Text("START!")
             }
             
-            Button {
-                trackProgress()
-            } label: {
-                Text("Progress")
-            }
-            
-            Text(progress)
-            
-            Button {
-                download()
-            } label: {
-                Text("Download")
-            }
-
+            Text(state.description)
+                .padding(.vertical, 12)
         }
-
     }
     
     init(directoryURL: URL) {
@@ -46,18 +55,54 @@ struct ModelGenerationView: View {
     }
     
     func start() {
-        manager.uploadFiles(from: directoryURL) { }
+        manager.uploadFiles(from: directoryURL) { progress in
+            switch progress {
+            case .inProgress(let progress):
+                self.state = .uploading(progress: progress)
+                
+            case .finished:
+                trackProgress()
+            }
+        }
     }
     
     func trackProgress() {
+        self.state = .generating(progress: 0)
         manager.getProgress { progress in
-            self.progress = "Progress: \(progress)"
+            switch progress {
+            case .inProgress(let progress):
+                self.state = .generating(progress: progress)
+                
+            case .finished:
+                download()
+            }
         }
     }
     
     func download() {
-        manager.downloadModel(into: directoryURL)
+        manager.downloadModel(into: directoryURL) { progress in
+            switch progress {
+            case .inProgress(let progress):
+                self.state = .downloading(progress: progress)
+            case .finished:
+                self.state = .done
+            }
+        } completion: { url in
+            openModel(from: url)
+        }
     }
+    
+    func openModel(from url: URL) {
+        
+    }
+}
+
+struct EmptyGenerationView: View {
+    
+    var body: some View {
+        EmptyView()
+    }
+    
 }
 
 struct ModelGenerationView_Previews: PreviewProvider {
