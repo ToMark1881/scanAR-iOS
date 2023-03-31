@@ -29,6 +29,8 @@
 		FABC9D9529D481B0001E565F /* ModelGenerationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABC9D9429D481B0001E565F /* ModelGenerationManager.swift */; };
 		FAC34E4329D5C4C200E345B7 /* ModelPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC34E4229D5C4C200E345B7 /* ModelPreviewView.swift */; };
 		FAF43DD329D46956004AB588 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAF43DD229D46956004AB588 /* Preview Assets.xcassets */; };
+		FAF65E7029D6F7B200E60C21 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF65E6F29D6F7B200E60C21 /* ProgressBar.swift */; };
+		FAFCED1F29D5D09500EDD8C8 /* ARModelPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFCED1E29D5D09500EDD8C8 /* ARModelPreviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		FACD315F29D4C35600957CB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		FAF43DC829D46955004AB588 /* ScanAR-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ScanAR-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAF43DD229D46956004AB588 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FAF65E6F29D6F7B200E60C21 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		FAFCED1E29D5D09500EDD8C8 /* ARModelPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARModelPreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +77,9 @@
 		FABC9D8B29D4710C001E565F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FAF65E6F29D6F7B200E60C21 /* ProgressBar.swift */,
 				FABC9D8E29D47148001E565F /* ContentView.swift */,
+				FAFCED1E29D5D09500EDD8C8 /* ARModelPreviewViewController.swift */,
 				FAC34E4229D5C4C200E345B7 /* ModelPreviewView.swift */,
 				FABC9D9229D47EDD001E565F /* ModelGenerationView.swift */,
 				FABC9D7429D46A14001E565F /* CameraPreviewView.swift */,
@@ -216,12 +222,14 @@
 				FABC9D7F29D46A14001E565F /* CaptureSampleApp.swift in Sources */,
 				FAC34E4329D5C4C200E345B7 /* ModelPreviewView.swift in Sources */,
 				FABC9D8029D46A14001E565F /* HelpPageView.swift in Sources */,
+				FAFCED1F29D5D09500EDD8C8 /* ARModelPreviewViewController.swift in Sources */,
 				FABC9D7A29D46A14001E565F /* AsyncImageHelpers.swift in Sources */,
 				FABC9D8629D46A14001E565F /* CameraPreviewView.swift in Sources */,
 				FABC9D8129D46A14001E565F /* TimerView.swift in Sources */,
 				FABC9D7C29D46A14001E565F /* CaptureFolderState.swift in Sources */,
 				FABC9D8229D46A14001E565F /* CaptureFoldersView.swift in Sources */,
 				FABC9D7B29D46A14001E565F /* Capture.swift in Sources */,
+				FAF65E7029D6F7B200E60C21 /* ProgressBar.swift in Sources */,
 				FABC9D7E29D46A14001E565F /* CaptureInfo.swift in Sources */,
 				FABC9D7929D46A14001E565F /* CameraView.swift in Sources */,
 				FABC9D8729D46A14001E565F /* ImageLoader.swift in Sources */,

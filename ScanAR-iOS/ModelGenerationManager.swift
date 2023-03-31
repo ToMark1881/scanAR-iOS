@@ -23,6 +23,8 @@ class ModelGenerationManager: NSObject {
     
     private var uploadProgressCallback: ((FileRequestProgress) -> Void)?
     private var downloadProgressCallback: ((FileRequestProgress) -> Void)?
+    private var fileURLCallback: ((URL) -> Void)?
+    private var fileDestinationURL: URL!
     
     func uploadFiles(from directoryUrl: URL, progressStatus: ((FileRequestProgress) -> Void)?) {
         self.uploadProgressCallback = progressStatus
@@ -32,11 +34,15 @@ class ModelGenerationManager: NSObject {
 
         // Set up the URLSession configuration and session object
         let configuration = URLSessionConfiguration.default
+        configuration.timeoutIntervalForRequest = 120
+        configuration.timeoutIntervalForResource = 120
+        
         let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
 
         // Set up the multipart form data body
         let boundary = "Boundary-\(UUID().uuidString)"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 120
 
         // Get the list of files in the directory
         let fileManager = FileManager.default
@@ -44,11 +50,22 @@ class ModelGenerationManager: NSObject {
         
         var bodyData = Data()
         for fileUrl in files {
-            let fileName = fileUrl.lastPathComponent
+            if fileUrl.pathExtension.lowercased() == "usdz" { continue }
             
+            let fileName = fileUrl.lastPathComponent
             bodyData.append("--\(boundary)\r\n".data(using: .utf8)!)
             bodyData.append("Content-Disposition: form-data; name=\"files[]\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
-            bodyData.append("Content-Type: application/octet-stream\r\n\r\n".data(using: .utf8)!)
+            
+            switch fileUrl.pathExtension.lowercased() {
+            case "txt":
+                bodyData.append("Content-Type: text/plain\r\n\r\n".data(using: .utf8)!)
+            case "heic":
+                bodyData.append("Content-Type: image/heic\r\n\r\n".data(using: .utf8)!)
+            case "tif":
+                bodyData.append("Content-Type: image/tiff\r\n\r\n".data(using: .utf8)!)
+            default:
+                bodyData.append("Content-Type: application/octet-stream\r\n\r\n".data(using: .utf8)!)
+            }
             
             let fileData = try! Data(contentsOf: fileUrl)
             bodyData.append(fileData)
@@ -67,6 +84,7 @@ class ModelGenerationManager: NSObject {
                 let id = String(decoding: data!, as: UTF8.self)
                 self?.currentSessionId = id
                 self?.uploadProgressCallback?(.finished)
+                self?.uploadProgressCallback = nil
             }
         }
 
@@ -134,6 +152,8 @@ class ModelGenerationManager: NSObject {
         }
         
         self.downloadProgressCallback = progressStatus
+        self.fileURLCallback = completion
+        self.fileDestinationURL = destinationURL
         
         // Set up the URL components
         var urlComponents = URLComponents()
@@ -141,20 +161,14 @@ class ModelGenerationManager: NSObject {
         urlComponents.host = Constants.host
         urlComponents.port = Constants.port
         urlComponents.path = "/download-model"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "id", value: id)
+        ]
 
         let fileURL = urlComponents.url!
         
-        let json = ["id": id]
-        let jsonData = try! JSONSerialization.data(withJSONObject: json)
-        
         var request = URLRequest(url: fileURL)
-        request.httpMethod = "POST"
-        request.httpBody = jsonData
-        
-        // Set up the multipart form data body
-        let boundary = "Boundary-\(UUID().uuidString)"
-        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        
+        request.httpMethod = "GET"
 
         // Create a URLSession configuration
         let sessionConfig = URLSessionConfiguration.default
@@ -163,42 +177,7 @@ class ModelGenerationManager: NSObject {
         let session = URLSession(configuration: sessionConfig, delegate: self, delegateQueue: OperationQueue.main)
 
         // Create a download task
-        let downloadTask = session.dataTask(with: request) { (data, response, error) in
-            // Check for errors
-            guard error == nil else {
-                print("Error downloading file: \(error!.localizedDescription)")
-                return
-            }
-            
-            // Check if there's a response
-            guard let httpResponse = response as? HTTPURLResponse else {
-                print("No response received")
-                return
-            }
-            
-            // Check if the response was successful
-            guard (200...299).contains(httpResponse.statusCode) else {
-                print("Response status code: \(httpResponse.statusCode)")
-                return
-            }
-            
-            // Check if there's a local URL for the downloaded file
-            guard let data = data else {
-                print("No local URL for downloaded file")
-                return
-            }
-            
-            // Move the downloaded file to the desired location
-            let url = destinationURL.appendingPathComponent("\(id).usdz")
-            
-            do {
-                try data.write(to: url)
-                completion(url)
-                print("File downloaded to: \(url.absoluteString)")
-            } catch {
-                print("Error moving downloaded file: \(error.localizedDescription)")
-            }
-        }
+        let downloadTask = session.downloadTask(with: request)
         
         // Start the download task
         downloadTask.resume()
@@ -251,6 +230,33 @@ extension ModelGenerationManager: URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession,
                     downloadTask: URLSessionDownloadTask,
                     didFinishDownloadingTo location: URL) {
+        
+        let response = downloadTask.response
+        // Check if there's a response
+        guard let httpResponse = response as? HTTPURLResponse else {
+            print("No response received")
+            return
+        }
+        
+        // Check if the response was successful
+        guard (200...299).contains(httpResponse.statusCode) else {
+            print("Response status code: \(httpResponse.statusCode)")
+            return
+        }
+        
+        // Move the downloaded file to the desired location
+        let url = fileDestinationURL.appendingPathComponent("model.usdz")
+        
+        do {
+            let data = try Data(contentsOf: location)
+            try data.write(to: url)
+            fileURLCallback?(url)
+            
+            print("File downloaded to: \(url.absoluteString)")
+        } catch {
+            print("Error moving downloaded file: \(error.localizedDescription)")
+        }
+        
         print("Downloaded")
         downloadProgressCallback?(.finished)
     }

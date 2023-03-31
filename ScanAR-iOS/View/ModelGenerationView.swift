@@ -12,7 +12,7 @@ enum GenerationState {
     case uploading(progress: Int)
     case generating(progress: Int)
     case downloading(progress: Int)
-    case done
+    case done(url: URL)
     
     var description: String {
         switch self {
@@ -33,20 +33,75 @@ enum GenerationState {
 struct ModelGenerationView: View {
     
     var directoryURL: URL
+    
     @State private var state: GenerationState = .new
+    
+    // for testing
+    var modelURL: URL? {
+        let fileManager = FileManager.default
+        let files = try! fileManager.contentsOfDirectory(at: directoryURL, includingPropertiesForKeys: nil)
+        
+        for fileUrl in files {
+            if fileUrl.pathExtension == "usdz" {
+                return fileUrl
+            }
+        }
+        
+        return nil
+    }
     
     private let manager = ModelGenerationManager()
     
     var body: some View {
         VStack {
-            Button {
-                start()
-            } label: {
-                Text("START!")
+            switch state {
+            case .new:
+                Button {
+                    start()
+                    // state = .done(url: modelURL!)
+                } label: {
+                    Text("Start model generation")
+                        .padding()
+                        .foregroundColor(.black)
+                        .font(.system(size: 18))
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [.pink, .red]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                        )
+                        .clipShape(Capsule())
+                }
+                
+            case .uploading(let progress):
+                var value = Float(progress) / 100
+                let binding = Binding(get: { value }, set: { value = $0 })
+                ProgressBar(progress: binding, color: .green)
+                    .padding(40)
+                
+            case .generating(let progress):
+                var value = Float(progress) / 100
+                let binding = Binding(get: { value }, set: { value = $0 })
+                ProgressBar(progress: binding, color: .red)
+                    .padding(40)
+                
+            case .downloading(let progress):
+                var value = Float(progress) / 100
+                let binding = Binding(get: { value }, set: { value = $0 })
+                ProgressBar(progress: binding, color: .blue)
+                    .padding(40)
+                
+            case .done(let url):
+                NavigationLink {
+                    ModelPreviewView(fileURL: url)
+                } label: {
+                    Text("Preview model in AR")
+                        .padding()
+                        .foregroundColor(.black)
+                        .font(.system(size: 18))
+                        .background(
+                            LinearGradient(gradient: Gradient(colors: [.yellow, .green]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                        )
+                        .clipShape(Capsule())
+                }
             }
-            
-            Text(state.description)
-                .padding(.vertical, 12)
         }
     }
     
@@ -84,25 +139,14 @@ struct ModelGenerationView: View {
             switch progress {
             case .inProgress(let progress):
                 self.state = .downloading(progress: progress)
-            case .finished:
-                self.state = .done
+                
+            default:
+                break
             }
         } completion: { url in
-            openModel(from: url)
+            self.state = .done(url: url)
         }
     }
-    
-    func openModel(from url: URL) {
-        
-    }
-}
-
-struct EmptyGenerationView: View {
-    
-    var body: some View {
-        EmptyView()
-    }
-    
 }
 
 struct ModelGenerationView_Previews: PreviewProvider {

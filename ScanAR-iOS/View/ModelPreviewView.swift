@@ -7,12 +7,21 @@
 
 import SwiftUI
 
-struct ModelPreviewView: View {
+struct ModelPreviewView: UIViewControllerRepresentable {
+    
+    typealias UIViewControllerType = ARModelPreviewViewController
     
     let fileURL: URL
     
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    func makeUIViewController(context: Context) -> UIViewControllerType {
+        let controller = ARModelPreviewViewController()
+        controller.fileURL = fileURL
+        
+        return controller
+    }
+    
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+        // Updates the state of the specified view controller with new information from SwiftUI.
     }
     
 }
