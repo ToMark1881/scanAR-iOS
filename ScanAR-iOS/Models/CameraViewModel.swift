@@ -29,6 +29,11 @@ class CameraViewModel: ObservableObject {
         /// image every specified interval.
         case automatic(everySecs: Double)
     }
+    
+    enum CaptureDevice: Int {
+        case regular
+        case wide
+    }
 
     /// This property holds a reference to the most recently captured image and its metadata. The app
     /// uses this to populate the thumbnail view.
@@ -83,6 +88,12 @@ class CameraViewModel: ObservableObject {
             }
         }
     }
+    
+    @Published var captureDevice: CaptureDevice = .regular {
+        didSet {
+            updateVideoDevice()
+        }
+    }
 
     /// This property indicates if auto-capture is currently active. The app sets this to `true` while it's
     /// automatically capturing images using the timer.
@@ -128,6 +139,11 @@ class CameraViewModel: ObservableObject {
         case .automatic(_):
             captureMode = .manual
         }
+    }
+    
+    func advanceToNextCaptureDevice(_ device: CaptureDevice) {
+        dispatchPrecondition(condition: .onQueue(DispatchQueue.main))
+        captureDevice = device
     }
 
     /// When the user presses the capture button, this method is called.
@@ -481,6 +497,73 @@ class CameraViewModel: ObservableObject {
             setupResult = .notAuthorized
         }
     }
+    
+    private func updateVideoDevice() {
+        pauseSession()
+        
+        sessionQueue.async { [self] in
+            do {
+                guard let currentCameraInput: AVCaptureInput = session.inputs.first else {
+                    return
+                }
+                
+                //Indicate that some changes will be made to the session
+                session.beginConfiguration()
+                session.removeInput(currentCameraInput)
+                
+                
+                let videoDeviceInput = try AVCaptureDeviceInput(
+                    device: getVideoDeviceForPhotogrammetry())
+
+                if session.canAddInput(videoDeviceInput) {
+                    session.addInput(videoDeviceInput)
+                    self.videoDeviceInput = videoDeviceInput
+                } else {
+                    logger.error("Couldn't add video device input to the session.")
+                    setupResult = .configurationFailed
+                    return
+                }
+                
+                session.commitConfiguration()
+            } catch {
+                logger.error("Couldn't create video device input: \(String(describing: error))")
+                setupResult = .configurationFailed
+                return
+            }
+            
+            do {
+                try addPhotoOutputOrThrow()
+            } catch {
+                logger.error("Error: adding photo output = \(String(describing: error))")
+                setupResult = .configurationFailed
+                return
+            }
+
+            // Set the observed property so that depth data is available on the main thread.
+            DispatchQueue.main.async {
+                self.isDepthDataEnabled = self.photoOutput.isDepthDataDeliveryEnabled
+                self.isHighQualityMode = self.photoOutput.isHighResolutionCaptureEnabled && self.photoOutput.maxPhotoQualityPrioritization == .quality
+            }
+
+            // Setup was successful, so set this value to tell the UI to enable
+            // the capture buttons.
+            setupResult = .success
+            
+            if motionManager.isDeviceMotionAvailable {
+                motionManager.startDeviceMotionUpdates()
+                DispatchQueue.main.async {
+                    self.isMotionDataEnabled = true
+                }
+            } else {
+                logger.warning("Device motion data isn't available!")
+                DispatchQueue.main.async {
+                    self.isMotionDataEnabled = false
+                }
+            }
+        }
+        
+        startSession()
+    }
 
     private func configureSession() {
         // Make sure setup hasn't failed.
@@ -524,8 +607,7 @@ class CameraViewModel: ObservableObject {
         // Set the observed property so that depth data is available on the main thread.
         DispatchQueue.main.async {
             self.isDepthDataEnabled = self.photoOutput.isDepthDataDeliveryEnabled
-            self.isHighQualityMode = self.photoOutput.isHighResolutionCaptureEnabled
-                && self.photoOutput.maxPhotoQualityPrioritization == .quality
+            self.isHighQualityMode = self.photoOutput.isHighResolutionCaptureEnabled && self.photoOutput.maxPhotoQualityPrioritization == .quality
         }
 
         // Setup was successful, so set this value to tell the UI to enable
@@ -534,6 +616,11 @@ class CameraViewModel: ObservableObject {
     }
 
     private func addPhotoOutputOrThrow() throws {
+        session.beginConfiguration()
+        if let output = session.outputs.first {
+            session.removeOutput(output)
+        }
+        
         if session.canAddOutput(photoOutput) {
             session.addOutput(photoOutput)
 
@@ -545,6 +632,7 @@ class CameraViewModel: ObservableObject {
             logger.error("Could not add photo output to the session")
             throw SessionSetupError.configurationFailed
         }
+        session.commitConfiguration()
     }
 
     /// This method checks for a depth-capable dual rear camera and, if found, returns an `AVCaptureDevice`.
@@ -552,7 +640,16 @@ class CameraViewModel: ObservableObject {
         var defaultVideoDevice: AVCaptureDevice?
 
         // Specify dual camera to get access to depth data.
-        if let dualCameraDevice = AVCaptureDevice.default(.builtInDualCamera, for: .video,
+        if captureDevice == .regular, let dualCameraDevice = AVCaptureDevice.default(.builtInDualCamera, for: .video,
+                                                          position: .back) {
+            logger.log(">>> Did select back dual camera!")
+            defaultVideoDevice = dualCameraDevice
+        } else if captureDevice == .wide, let dualWideCameraDevice = AVCaptureDevice.default(.builtInDualWideCamera,
+                                                                for: .video,
+                                                                position: .back) {
+            logger.log(">>> Did select back dual wide camera!")
+            defaultVideoDevice = dualWideCameraDevice
+        } else if let dualCameraDevice = AVCaptureDevice.default(.builtInDualCamera, for: .video,
                                                           position: .back) {
             logger.log(">>> Got back dual camera!")
             defaultVideoDevice = dualCameraDevice

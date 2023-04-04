@@ -74,6 +74,9 @@ struct CaptureGalleryView: View {
             }
             .blur(radius: zoomedCapture != nil ? 20 : 0)
             
+            ModelGenerationButtonView(shouldShow: !captureFolderState.captures.isEmpty,
+                                      directoryURL: captureFolderState.captureDir)
+            
             if zoomedCapture != nil {
                 ZStack(alignment: .top) {
                     // Add a transluscent layer over the blur to make the text pop.
@@ -99,8 +102,6 @@ struct CaptureGalleryView: View {
                     }
                 }
             }
-            ModelGenerationButtonView(shouldShow: !captureFolderState.captures.isEmpty,
-                                      directoryURL: captureFolderState.captureDir)
         }
         .navigationTitle(Text("\(captureFolderState.captureDir?.lastPathComponent ?? "NONE")"))
         .navigationBarTitleDisplayMode(.inline)

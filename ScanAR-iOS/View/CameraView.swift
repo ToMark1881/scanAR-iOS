@@ -30,6 +30,9 @@ struct CameraView: View {
                     // around the live preview and round the corners.
                     VStack {
                         Spacer()
+                        CaptureDeviceView(model: model)
+                            .padding(.bottom, 8)
+                        
                         CameraPreviewView(session: model.session)
                             .frame(width: geometryReader.size.width,
                                    height: geometryReader.size.width * aspectRatio,
@@ -109,7 +112,6 @@ struct ScanToolbarView: View {
             HStack {
                 SystemStatusIcon(model: model)
                 Button(action: {
-                    print("Pressed Info!")
                     withAnimation {
                         showInfo.toggle()
                     }
@@ -199,6 +201,25 @@ struct ManualCaptureButtonView: View {
                        alignment: .center)
         }
     }
+}
+
+struct CaptureDeviceView: View {
+    
+    @State private var selectedMode: Int = 0
+    
+    @ObservedObject var model: CameraViewModel
+    
+    var body: some View {
+        Picker("Capture Device", selection: $selectedMode) {
+            Text("Regular").tag(0)
+            Text("Wide").tag(1)
+        }
+        .onChange(of: selectedMode) { newValue in
+            model.advanceToNextCaptureDevice(CameraViewModel.CaptureDevice(rawValue: newValue)!)
+        }
+        .colorMultiply(.white)
+    }
+    
 }
 
 struct CaptureModeButton: View {
