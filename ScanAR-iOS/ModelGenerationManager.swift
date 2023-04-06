@@ -32,19 +32,15 @@ class ModelGenerationManager: NSObject {
         var request = URLRequest(url: URL(string: "http://" + Constants.host + ":" + Constants.port.description + "/upload-photos/")!)
         request.httpMethod = "POST"
 
-        // Set up the URLSession configuration and session object
         let configuration = URLSessionConfiguration.default
         configuration.timeoutIntervalForRequest = 120
         configuration.timeoutIntervalForResource = 120
-        
         let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
-
-        // Set up the multipart form data body
+        
         let boundary = "Boundary-\(UUID().uuidString)"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         request.timeoutInterval = 120
 
-        // Get the list of files in the directory
         let fileManager = FileManager.default
         let files = try! fileManager.contentsOfDirectory(at: directoryUrl, includingPropertiesForKeys: nil)
         
@@ -55,7 +51,6 @@ class ModelGenerationManager: NSObject {
             let fileName = fileUrl.lastPathComponent
             bodyData.append("--\(boundary)\r\n".data(using: .utf8)!)
             bodyData.append("Content-Disposition: form-data; name=\"files[]\"; filename=\"\(fileName)\"\r\n".data(using: .utf8)!)
-            
             switch fileUrl.pathExtension.lowercased() {
             case "txt":
                 bodyData.append("Content-Type: text/plain\r\n\r\n".data(using: .utf8)!)
@@ -66,17 +61,13 @@ class ModelGenerationManager: NSObject {
             default:
                 bodyData.append("Content-Type: application/octet-stream\r\n\r\n".data(using: .utf8)!)
             }
-            
             let fileData = try! Data(contentsOf: fileUrl)
             bodyData.append(fileData)
             bodyData.append("\r\n".data(using: .utf8)!)
         }
         bodyData.append("--\(boundary)--\r\n".data(using: .utf8)!)
-
-        // Set the request body
         request.httpBody = bodyData
 
-        // Create the upload task
         let uploadTask = session.uploadTask(with: request, from: nil) { [weak self] (data, response, error) in
             if let error = error {
                 print("Error uploading files: \(error)")

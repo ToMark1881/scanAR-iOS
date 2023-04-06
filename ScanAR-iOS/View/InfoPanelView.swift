@@ -8,9 +8,6 @@
 import Combine
 import SwiftUI
 
-/// This view implements an informational status panel that indicates whether gravity and depth are being
-/// captured. This view also contains a progress bar based on the current number of images taken compared
-/// with the maximum number of images for a capture.
 struct InfoPanelView: View {
     @ObservedObject var model: CameraViewModel
     
@@ -61,9 +58,6 @@ struct InfoPanelView: View {
     }
 }
 
-/// This is a custom progress bar that fills the width of the enclosing view with the current count of images
-/// in the model. This view uses a transparent capsule wider than the progress bar to indicate the suggested
-/// number of photos for a good capture.
 struct CaptureCountProgressBar: View {
     @ObservedObject var model: CameraViewModel
     let height: CGFloat = 5
@@ -80,9 +74,7 @@ struct CaptureCountProgressBar: View {
                            height: height,
                            alignment: .leading)
                     .foregroundColor(CaptureCountProgressBar.unfilledProgressColor)
-                
-                // The foreground bar is a full-opacity and left-aligned bar
-                // the same size as its background.
+
                 Capsule()
                     .frame(width: CGFloat(Double(model.captureFolderState!.captures.count)
                                             / Double(CameraViewModel.maxPhotosAllowed)
@@ -91,7 +83,6 @@ struct CaptureCountProgressBar: View {
                            alignment: .leading)
                     .foregroundColor(Color.white)
                 
-                // Draw another taller capsule to show the recommended number of images.
                 Capsule()
                     .frame(width: CGFloat(Double(CameraViewModel.recommendedMaxPhotos -
                                                     CameraViewModel.recommendedMinPhotos)
@@ -109,8 +100,6 @@ struct CaptureCountProgressBar: View {
     }
 }
 
-/// This is a label that shows the current status of the capture. It displays one of the following strings: High
-/// Quality, Not High Quality, No Camera.
 struct CameraStatusLabel: View {
     var enabled: Bool = true
     var qualityMode: Bool = true
@@ -129,8 +118,6 @@ struct CameraStatusLabel: View {
     }
 }
 
-/// This is a status label that indicates whether the app can access the intertial measurement unit (IMU) to
-/// get the device's gravity vector.
 struct GravityStatusLabel: View {
     var enabled: Bool = true
     
@@ -144,7 +131,6 @@ struct GravityStatusLabel: View {
     }
 }
 
-/// This view implements a label that indicates whether depth data is supported on the current device.
 struct DepthStatusLabel: View {
     var enabled: Bool = true
     
@@ -158,11 +144,6 @@ struct DepthStatusLabel: View {
     }
 }
 
-/// This view implements a system status summary view. This view contains a different color icon depending
-/// on the capture status. If the device is currently unable to take a picture, this view displays a red icon. If
-/// the device can take a picture, but can't access depth or gravity information, or if it can't take pictures at
-/// the highest quality and resolution, this view displays a yellow icon. If the device can take pictures at the
-/// highest quality with depth and gravity data, this view displays a green icon.
 struct SystemStatusIcon: View {
     @ObservedObject var model: CameraViewModel
     

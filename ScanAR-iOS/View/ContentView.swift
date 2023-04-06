@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-/// This is the root view for the app.
 struct ContentView: View {
     @ObservedObject var model: CameraViewModel
 
@@ -17,7 +16,6 @@ struct ContentView: View {
             Color.black.edgesIgnoringSafeArea(.all)
             CameraView(model: model)
         }
-        // Force dark mode so the photos pop.
         .environment(\.colorScheme, .dark)
     }
     

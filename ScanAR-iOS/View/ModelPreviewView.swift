@@ -20,8 +20,6 @@ struct ModelPreviewView: UIViewControllerRepresentable {
         return controller
     }
     
-    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
-        // Updates the state of the specified view controller with new information from SwiftUI.
-    }
+    func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) { }
     
 }

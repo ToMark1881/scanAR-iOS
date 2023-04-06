@@ -9,7 +9,6 @@ import Combine
 import Foundation
 import SwiftUI
 
-/// This view displays a darkened circle that fills with a brighter arc based on the time remaining on a `Timer`.
 struct TimerView: View {
     @ObservedObject var model: CameraViewModel
 

@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-/// This method implements a tabbed tutorial view that the app displays when the user presses the help button.
 struct HelpPageView: View {
     var body: some View {
         ZStack {
@@ -121,8 +120,6 @@ struct ProConListView: View {
     }
 }
 
-/// This label uses the `.secondary` color for its text and has a green checkmark icon. It's used to
-/// denote good capture practices.
 struct PositiveLabel: View {
     let text: String
     
@@ -141,8 +138,6 @@ struct PositiveLabel: View {
     }
 }
 
-/// This label uses the `.secondary` color for its text and has a red X icon. It's used to denote bad
-/// capture practices.
 struct NegativeLabel: View {
     let text: String
     

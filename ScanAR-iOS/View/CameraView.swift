@@ -8,8 +8,6 @@
 import Foundation
 import SwiftUI
 
-/// This is the app's primary view. It contains a preview area, a capture button, and a thumbnail view
-/// showing the most recenty captured image.
 struct CameraView: View {
     static let buttonBackingOpacity: CGFloat = 0.15
     
@@ -22,12 +20,9 @@ struct CameraView: View {
     var body: some View {
         NavigationView {
             GeometryReader { geometryReader in
-                // Place the CameraPreviewView at the bottom of the stack.
                 ZStack {
                     Color.black.edgesIgnoringSafeArea(.all)
                     
-                    // Center the preview view vertically. Place a clip frame
-                    // around the live preview and round the corners.
                     VStack {
                         Spacer()
                         CaptureDeviceView(model: model)
@@ -50,7 +45,6 @@ struct CameraView: View {
                     }
                     
                     VStack {
-                        // The app shows this view when showInfo is true.
                         ScanToolbarView(model: model, showInfo: $showInfo).padding(.horizontal)
                         if showInfo {
                             InfoPanelView(model: model)
@@ -69,15 +63,12 @@ struct CameraView: View {
     }
 }
 
-/// This view displays the image thumbnail, capture button, and capture mode button.
 struct CaptureButtonPanelView: View {
     @ObservedObject var model: CameraViewModel
     
-    /// This property stores the full width of the bar. The view uses this to place items.
     var width: CGFloat
     
     var body: some View {
-        // Add the bottom panel, which contains the thumbnail and capture button.
         ZStack(alignment: .center) {
             HStack {
                 ThumbnailView(model: model)
@@ -100,9 +91,6 @@ struct CaptureButtonPanelView: View {
     }
 }
 
-/// This is a custom "toolbar" view the app displays at the top of the screen. It includes the current capture
-/// status and buttons for help and detailed information. The user can tap the entire top panel to
-/// open or close the information panel.
 struct ScanToolbarView: View {
     @ObservedObject var model: CameraViewModel
     @Binding var showInfo: Bool
@@ -139,8 +127,6 @@ struct ScanToolbarView: View {
     }
 }
 
-/// This capture button view is modeled after the Camera app button. The view changes shape when the
-/// user starts shooting in automatic mode.
 struct CaptureButton: View {
     static let outerDiameter: CGFloat = 80
     static let strokeWidth: CGFloat = 4
@@ -168,7 +154,6 @@ struct CaptureButton: View {
     }
 }
 
-/// This is a helper view for the `CaptureButton`. It implements the shape for automatic capture mode.
 struct AutoCaptureButtonView: View {
     @ObservedObject var model: CameraViewModel
     
@@ -185,7 +170,6 @@ struct AutoCaptureButtonView: View {
     }
 }
 
-/// This is a helper view for the `CaptureButton`. It implements the shape for manual capture mode.
 struct ManualCaptureButtonView: View {
     var body: some View {
         ZStack {
@@ -230,7 +214,7 @@ struct CaptureModeButton: View {
     var frameWidth: CGFloat
     
     var body: some View {
-        VStack(alignment: .center/*@END_MENU_TOKEN@*/, spacing: 2) {
+        VStack(alignment: .center, spacing: 2) {
             Button(action: {
                 withAnimation {
                     model.advanceToNextCaptureMode()
@@ -267,14 +251,10 @@ struct CaptureModeButton: View {
                     .transition(.opacity)
             }
         }
-        // This frame centers the view and keeps it from reflowing when the view has a caption.
-        // The view uses .top so the button won't move and the text will animate in and out.
         .frame(width: frameWidth, height: CaptureModeButton.backingDiameter, alignment: .top)
     }
 }
 
-/// This view shows a thumbnail of the last photo captured, similar to the  iPhone's Camera app. If there isn't
-/// a previous photo, this view shows a placeholder.
 struct ThumbnailView: View {
     private let thumbnailFrameWidth: CGFloat = 60.0
     private let thumbnailFrameHeight: CGFloat = 60.0
@@ -297,14 +277,13 @@ struct ThumbnailView: View {
                                        cornerRadius: thumbnailFrameCornerRadius,
                                        strokeWidth: thumbnailStrokeWidth)
                 } else {
-                    // Use full-size if no preview.
                     ThumbnailImageView(uiImage: capture.uiImage,
                                        width: thumbnailFrameWidth,
                                        height: thumbnailFrameHeight,
                                        cornerRadius: thumbnailFrameCornerRadius,
                                        strokeWidth: thumbnailStrokeWidth)
                 }
-            } else {  // When no image, use icon from the app bundle.
+            } else {
                 Image(systemName: "photo.on.rectangle")
                     .resizable()
                     .aspectRatio(contentMode: .fit)

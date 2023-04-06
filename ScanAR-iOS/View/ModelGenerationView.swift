@@ -36,20 +36,6 @@ struct ModelGenerationView: View {
     
     @State private var state: GenerationState = .new
     
-    // for testing
-    var modelURL: URL? {
-        let fileManager = FileManager.default
-        let files = try! fileManager.contentsOfDirectory(at: directoryURL, includingPropertiesForKeys: nil)
-        
-        for fileUrl in files {
-            if fileUrl.pathExtension == "usdz" {
-                return fileUrl
-            }
-        }
-        
-        return nil
-    }
-    
     private let manager = ModelGenerationManager()
     
     var body: some View {
@@ -58,7 +44,6 @@ struct ModelGenerationView: View {
             case .new:
                 Button {
                     start()
-                    // state = .done(url: modelURL!)
                 } label: {
                     Text("Start model generation")
                         .padding()
@@ -146,11 +131,5 @@ struct ModelGenerationView: View {
         } completion: { url in
             self.state = .done(url: url)
         }
-    }
-}
-
-struct ModelGenerationView_Previews: PreviewProvider {
-    static var previews: some View {
-        ModelGenerationView(directoryURL: URL(string: "google.com")!)
     }
 }

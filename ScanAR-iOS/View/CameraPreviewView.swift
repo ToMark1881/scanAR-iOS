@@ -14,8 +14,6 @@ import os
 private let logger = Logger(subsystem: "com.tomark.scanar-ios",
                             category: "CameraPreviewView")
 
-/// This view allows the app to display an `AVCapturePreviewLayer` in SwiftUI.
-/// It's used by `CameraView`to interact with the `CameraModel`.
 struct CameraPreviewView: UIViewRepresentable {
     let previewViewCornerRadius: CGFloat = 50
     
@@ -52,7 +50,6 @@ struct CameraPreviewView: UIViewRepresentable {
         let view = PreviewView()
         view.videoPreviewLayer.session = session
         
-        // Set the view's initial state.
         view.backgroundColor = .black
         view.videoPreviewLayer.cornerRadius = 0
         view.videoPreviewLayer.connection?.videoOrientation = .portrait

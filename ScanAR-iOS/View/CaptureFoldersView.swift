@@ -41,8 +41,6 @@ struct CaptureFoldersView: View {
                 })
             }
             .onReceive(publisher, perform: { folderListing in
-                // Filter out the current folder so the app doesn't delete it
-                // or recurse down into it.
                 self.captureFolders = folderListing.filter {
                     $0.lastPathComponent != model.captureDir!.lastPathComponent
                 }
@@ -52,7 +50,6 @@ struct CaptureFoldersView: View {
         .navigationBarHidden(false)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
-            // Add an Edit button to enable deleting items.
             ToolbarItem {
                 EditButton()
             }
