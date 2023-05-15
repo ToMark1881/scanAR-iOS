@@ -15,7 +15,7 @@ enum FileRequestProgress {
 class ModelGenerationManager: NSObject {
     
     private enum Constants {
-        static let host = "192.168.1.146"
+        static let host = "192.168.1.245" // server IP in local network
         static let port = 8080
     }
     
@@ -33,13 +33,13 @@ class ModelGenerationManager: NSObject {
         request.httpMethod = "POST"
 
         let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 120
-        configuration.timeoutIntervalForResource = 120
+        configuration.timeoutIntervalForRequest = 10_000
+        configuration.timeoutIntervalForResource = 10_000
         let session = URLSession(configuration: configuration, delegate: self, delegateQueue: OperationQueue.main)
         
         let boundary = "Boundary-\(UUID().uuidString)"
         request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
-        request.timeoutInterval = 120
+        request.timeoutInterval = 10_000
 
         let fileManager = FileManager.default
         let files = try! fileManager.contentsOfDirectory(at: directoryUrl, includingPropertiesForKeys: nil)

@@ -10,6 +10,7 @@ import SwiftUI
 enum GenerationState {
     case new
     case uploading(progress: Int)
+    case processing
     case generating(progress: Int)
     case downloading(progress: Int)
     case done(url: URL)
@@ -20,6 +21,8 @@ enum GenerationState {
             return "New"
         case .uploading(let progress):
             return "Uploading \(progress.description)"
+        case .processing:
+            return "Processing"
         case .generating(let progress):
             return "Generating \(progress.description)"
         case .downloading(let progress):
@@ -58,20 +61,44 @@ struct ModelGenerationView: View {
             case .uploading(let progress):
                 var value = Float(progress) / 100
                 let binding = Binding(get: { value }, set: { value = $0 })
-                ProgressBar(progress: binding, color: .green)
-                    .padding(40)
+                VStack {
+                    Text("Uploading photos...")
+                        .font(.title)
+                        .bold()
+                        .padding(.bottom, 12)
+                    ProgressBar(progress: binding, color: .green)
+                        .padding(40)
+                }
+            
+            case .processing:
+                Text("Processing photos...")
+                    .font(.title)
+                    .bold()
+                    .padding(.bottom, 12)
                 
             case .generating(let progress):
                 var value = Float(progress) / 100
                 let binding = Binding(get: { value }, set: { value = $0 })
-                ProgressBar(progress: binding, color: .red)
-                    .padding(40)
+                VStack {
+                    Text("Generating model...")
+                        .font(.title)
+                        .bold()
+                        .padding(.bottom, 12)
+                    ProgressBar(progress: binding, color: .red)
+                        .padding(40)
+                }
                 
             case .downloading(let progress):
                 var value = Float(progress) / 100
                 let binding = Binding(get: { value }, set: { value = $0 })
-                ProgressBar(progress: binding, color: .blue)
-                    .padding(40)
+                VStack {
+                    Text("Downloading model...")
+                        .font(.title)
+                        .bold()
+                        .padding(.bottom, 12)
+                    ProgressBar(progress: binding, color: .blue)
+                        .padding(40)
+                }
                 
             case .done(let url):
                 NavigationLink {
@@ -98,8 +125,8 @@ struct ModelGenerationView: View {
         manager.uploadFiles(from: directoryURL) { progress in
             switch progress {
             case .inProgress(let progress):
-                self.state = .uploading(progress: progress)
-                
+                self.state = progress == 100 ? .processing : .uploading(progress: progress)
+                                
             case .finished:
                 trackProgress()
             }
